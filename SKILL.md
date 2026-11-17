@@ -59,6 +59,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Design patterns for loops and challenge](references/design-patterns-loops-and-challenge.md) | Core loops, learning, mastery, difficulty, and pacing |
+| [Design patterns for choice and progression](references/design-patterns-choice-and-progression.md) | Meaningful decisions, incentives, economies, and build diversity |
+| [Design patterns for worlds and social play](references/design-patterns-worlds-and-social-play.md) | Exploration, narrative, cooperation, competition, and emergence |
+| [Design patterns for information and sessions](references/design-patterns-information-and-sessions.md) | Player knowledge, feedback, commitments, recovery, and session boundaries |
 | [Ability systems](references/ability-systems.md) | Activation rules, targeting, cooldowns, effects, and feedback |
 | [Status effects](references/status-effects.md) | Buffs, debuffs, duration, stacking, dispels, and immunity |
 | [Ability combos](references/ability-combos.md) | Setup and payoff, sequence rules, co-op attribution, and feedback |
