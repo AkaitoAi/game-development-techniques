@@ -140,6 +140,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [World streaming](references/world-streaming.md) | Chunk loading, residency, unloading, and streaming performance |
 | [Loading and transitions](references/loading-and-transitions.md) | Loading screens, progress feedback, and handoff into playable scenes |
 | [Large open worlds](references/large-open-worlds.md) | World partitioning, content organization, budgets, and validation |
+| [Coordinate origin rebasing](references/coordinate-origin-rebasing.md) | Large-world precision and continuity across origin shifts |
 | [Mobile location-based play](references/mobile-location-based-play.md) | Location accuracy, map interactions, permissions, and safe play |
 | [Terrain and vegetation](references/terrain-and-vegetation.md) | Landscape data, foliage placement, transitions, and rendering budgets |
 | [Spline-based authoring](references/spline-based-authoring.md) | Roads, rails, rivers, curve sampling, and generated geometry |
@@ -179,11 +180,14 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game engine job scheduling](references/game-engine-job-scheduling.md) | Dependencies, task granularity, critical paths, and frame budgets |
 | [Animation job pipelines](references/game-animation-job-pipelines.md) | Parallel pose evaluation, dependency barriers, and presentation handoff |
 | [Gameplay invariants and validation](references/gameplay-invariants-and-validation.md) | Rules that must hold across transitions, authoring checks, and runtime diagnostics |
+| [Game content validation pipelines](references/game-content-validation-pipelines.md) | Asset rules, authoring feedback, and build validation |
+| [Game thread ownership](references/game-thread-ownership.md) | Single-writer state, handoff, synchronization, and teardown |
 | [Game runtime feature flags](references/game-runtime-feature-flags.md) | Runtime configuration contracts, coordinated activation, and recovery |
 | [Save schema migrations](references/save-schema-migrations.md) | Versioned formats, content identifiers, migration chains, and recovery |
 | [Entity identifiers and handles](references/entity-identifiers-and-handles.md) | Stale references, recycled slots, persistent IDs, and deferred resolution |
 | [Gameplay scripting boundaries](references/gameplay-scripting-boundaries.md) | Script/native contracts, state ownership, reloads, and error handling |
 | [Fixed timestep and update loops](references/fixed-timestep-and-update-loops.md) | Simulation steps, interpolation, scheduling, and hitch behavior |
+| [Game clock domains](references/game-clock-domains.md) | Simulation, presentation, and wall clocks, pause rules, and timer ownership |
 | [Runtime debugging tools](references/runtime-debugging-tools.md) | Inspectors, overlays, traces, and reproducible gameplay diagnostics |
 | [Data-oriented architecture](references/data-oriented-architecture.md) | Data layout, batched updates, access patterns, and profiling |
 | [Data layout and cache locality](references/data-layout-and-cache-locality.md) | Hot and cold data, traversal order, memory traffic, and profiling |
