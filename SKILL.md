@@ -197,6 +197,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Gameplay transaction boundaries](references/gameplay-transaction-boundaries.md) | Atomic state changes, commit points, retries, and recovery |
 | [Game content validation pipelines](references/game-content-validation-pipelines.md) | Asset rules, authoring feedback, and build validation |
 | [Game thread ownership](references/game-thread-ownership.md) | Single-writer state, handoff, synchronization, and teardown |
+| [Game thread backpressure](references/game-thread-backpressure.md) | Bounded work queues, overload policies, prioritization, and recovery |
+| [Game resource residency](references/game-resource-residency.md) | Allocating residency budgets, evicting assets, and tracking in-flight use |
+| [Game command undo and redo](references/game-command-undo-and-redo.md) | Reversible authoring actions, grouped edits, and history validation |
+| [Gameplay state reconciliation](references/gameplay-state-reconciliation.md) | Server corrections, replaying pending inputs, and smoothing presentation |
 | [Game runtime feature flags](references/game-runtime-feature-flags.md) | Runtime configuration contracts, coordinated activation, and recovery |
 | [Save schema migrations](references/save-schema-migrations.md) | Versioned formats, content identifiers, migration chains, and recovery |
 | [Entity identifiers and handles](references/entity-identifiers-and-handles.md) | Stale references, recycled slots, persistent IDs, and deferred resolution |
