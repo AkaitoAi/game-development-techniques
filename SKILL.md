@@ -69,6 +69,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Design patterns for worlds and social play](references/design-patterns-worlds-and-social-play.md) | Exploration, narrative, cooperation, competition, and emergence |
 | [Design patterns for information and sessions](references/design-patterns-information-and-sessions.md) | Player knowledge, feedback, commitments, recovery, and session boundaries |
 | [Ability systems](references/ability-systems.md) | Activation rules, targeting, cooldowns, effects, and feedback |
+| [Gameplay ability prediction](references/gameplay-ability-prediction.md) | Responsive activation, authoritative confirmation, and correction |
 | [Status effects](references/status-effects.md) | Buffs, debuffs, duration, stacking, dispels, and immunity |
 | [Ability combos](references/ability-combos.md) | Setup and payoff, sequence rules, co-op attribution, and feedback |
 | [Power-ups](references/power-ups.md) | Pickups, temporary forms, replacement rules, and level interactions |
@@ -113,6 +114,8 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Replays](references/replays.md) | Recording, seeking, spectator views, highlights, and compatibility |
 | [Spectators and tournaments](references/spectators-and-tournaments.md) | Live observers, competitive visibility, match operations, and broadcast controls |
 | [Animation](references/animation.md) | Pose selection, transition timing, blending, locomotion, and motion alignment |
+| [Animation root motion](references/game-animation-root-motion.md) | Authored displacement, collision, root alignment, and movement ownership |
+| [Game transform hierarchies](references/game-transform-hierarchies.md) | Local and world transforms, parenting, propagation, and attachments |
 | [Animation compression](references/animation-compression.md) | Pose error, clip storage, decompression, and regression checks |
 | [Animation runtime LOD](references/animation-runtime-lod.md) | Reducing pose evaluation cost, changing animation tiers, and preserving gameplay timing |
 | [Animation rigging](references/animation-rigging.md) | Skeletons, skinning, deformation, and rig validation |
@@ -204,6 +207,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Spatial indexing](references/spatial-indexing.md) | Spatial queries, moving objects, partitioning, and correctness under load |
 | [Game engine memory allocators](references/game-engine-memory-allocators.md) | Arenas, alignment, lifetime classes, and fragmentation |
 | [Gameplay messaging](references/gameplay-messaging.md) | Events, commands, ordering, subscriber lifetimes, and debugging |
+| [Game input command history](references/game-input-command-history.md) | Tick-indexed input, command retention, acknowledgment, and replay |
 | [Gameplay event ordering](references/gameplay-event-ordering.md) | Same-tick precedence, nested events, and deterministic delivery |
 | [Game state diffing](references/game-state-diffing.md) | Comparing simulation snapshots and diagnosing divergent state |
 | [Game resource handles and registries](references/game-resource-handles-and-registries.md) | Typed resource identity, handle resolution, reloads, and lifetime validation |
