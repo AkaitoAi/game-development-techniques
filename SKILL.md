@@ -161,6 +161,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Gameplay state machines](references/gameplay-state-machines.md) | State ownership, transition guards, interruptions, and recovery |
 | [Engine subsystem lifecycles](references/engine-subsystem-lifecycles.md) | Startup dependencies, scene and session ownership, teardown, and recovery |
 | [Game module dependencies](references/game-module-dependencies.md) | Module boundaries, dependency direction, and build-time coupling |
+| [Game plugin interfaces](references/game-plugin-interfaces.md) | Extension contracts, capability discovery, compatibility, and isolation |
+| [Gameplay ownership and authority](references/gameplay-ownership-and-authority.md) | State ownership, mutation rights, authority transfer, and conflict handling |
+| [Game object pooling](references/game-object-pooling.md) | Reusable objects, reset contracts, capacity, and stale callbacks |
+| [Simulation record-and-replay testing](references/simulation-record-and-replay-testing.md) | Capturing regression traces, replaying inputs, and locating divergence |
 | [Gameplay hot reload](references/gameplay-hot-reload.md) | Reloading gameplay data or code, preserving state, and handling failures |
 | [Async asset lifetimes](references/async-asset-lifetimes.md) | Load requests, cancellation, ownership, shared dependencies, and release |
 | [Game asset dependency graphs](references/game-asset-dependency-graphs.md) | Dependency discovery, stable IDs, invalidation, and bundle validation |
