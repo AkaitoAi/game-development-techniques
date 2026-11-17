@@ -174,6 +174,8 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game asset dependency graphs](references/game-asset-dependency-graphs.md) | Dependency discovery, stable IDs, invalidation, and bundle validation |
 | [Gameplay serialization and snapshots](references/gameplay-serialization-and-snapshots.md) | Runtime state capture, restoration, identity, and replay checks |
 | [Game engine job scheduling](references/game-engine-job-scheduling.md) | Dependencies, task granularity, critical paths, and frame budgets |
+| [Animation job pipelines](references/game-animation-job-pipelines.md) | Parallel pose evaluation, dependency barriers, and presentation handoff |
+| [Gameplay invariants and validation](references/gameplay-invariants-and-validation.md) | Rules that must hold across transitions, authoring checks, and runtime diagnostics |
 | [Game runtime feature flags](references/game-runtime-feature-flags.md) | Runtime configuration contracts, coordinated activation, and recovery |
 | [Save schema migrations](references/save-schema-migrations.md) | Versioned formats, content identifiers, migration chains, and recovery |
 | [Entity identifiers and handles](references/entity-identifiers-and-handles.md) | Stale references, recycled slots, persistent IDs, and deferred resolution |
