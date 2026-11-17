@@ -110,6 +110,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Spectators and tournaments](references/spectators-and-tournaments.md) | Live observers, competitive visibility, match operations, and broadcast controls |
 | [Animation](references/animation.md) | Pose selection, transition timing, blending, locomotion, and motion alignment |
 | [Animation compression](references/animation-compression.md) | Pose error, clip storage, decompression, and regression checks |
+| [Animation runtime LOD](references/animation-runtime-lod.md) | Reducing pose evaluation cost, changing animation tiers, and preserving gameplay timing |
 | [Animation rigging](references/animation-rigging.md) | Skeletons, skinning, deformation, and rig validation |
 | [Cutscenes](references/cutscenes.md) | Cinematic sequencing, player control handoff, skipping, and continuity |
 | [3D modeling](references/3d-modeling.md) | Mesh topology, UVs, rig compatibility, and game-ready asset budgets |
@@ -180,6 +181,8 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game engine job scheduling](references/game-engine-job-scheduling.md) | Dependencies, task granularity, critical paths, and frame budgets |
 | [Animation job pipelines](references/game-animation-job-pipelines.md) | Parallel pose evaluation, dependency barriers, and presentation handoff |
 | [Gameplay invariants and validation](references/gameplay-invariants-and-validation.md) | Rules that must hold across transitions, authoring checks, and runtime diagnostics |
+| [Gameplay tags and capabilities](references/gameplay-tags-and-capabilities.md) | Shared vocabulary, eligibility queries, grants, and state cleanup |
+| [Gameplay transaction boundaries](references/gameplay-transaction-boundaries.md) | Atomic state changes, commit points, retries, and recovery |
 | [Game content validation pipelines](references/game-content-validation-pipelines.md) | Asset rules, authoring feedback, and build validation |
 | [Game thread ownership](references/game-thread-ownership.md) | Single-writer state, handoff, synchronization, and teardown |
 | [Game runtime feature flags](references/game-runtime-feature-flags.md) | Runtime configuration contracts, coordinated activation, and recovery |
@@ -200,6 +203,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Network message schema evolution](references/network-message-schema-evolution.md) | Protocol compatibility, message versions, and mixed-build validation |
 | [Data-driven gameplay](references/data-driven-gameplay.md) | Authored definitions, validation, versioning, and runtime state boundaries |
 | [Memory management](references/memory-management.md) | Allocation, pooling, lifetimes, memory ceilings, and leaks |
+| [Game runtime memory budgets](references/game-runtime-memory-budgets.md) | Peak residency, budget ownership, streaming headroom, and pressure responses |
 | [Multithreading and jobs](references/multithreading-and-jobs.md) | Parallel work, dependencies, synchronization, and profiling |
 | [2D rendering](references/2d-rendering.md) | Sprites, atlases, tilemaps, scaling, and pixel stability |
 | [Puzzle design](references/puzzle-design.md) | Constraints, solution discovery, hints, and solvability |
