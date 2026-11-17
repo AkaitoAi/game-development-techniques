@@ -1,0 +1,12 @@
+# Game state diffing
+
+## Problem and design reasoning
+
+A visible desync may surface long after the first failed invariant. A single checksum can detect disagreement but cannot identify the system or field that diverged. Wube describes *Factorio* desync reports that capture client and server state for comparison, and asks for reproducible steps to help identify the cause. For shipped *Mortal Kombat X* and *Injustice 2*, NetherRealm describes comparing values at multiple points in a tick. A practical inference is to start with a cheap comparison and narrow the first reproducible difference by phase, system, and entity. [Twinsen, Factorio Friday Facts #188](https://www.factorio.com/blog/post/fff-188) · [Michael Stallone, 8 Frames in 16ms, GDC 2018](https://media.gdcvault.com/gdc2018/presentations/Stallone_Michael_8FramesIn16ms.pdf)
+
+## Techniques and practical checks
+
+- Define a canonical diagnostic view of simulation state. Order records by stable identity, normalize representations only where the simulation contract permits, and omit transient addresses and presentation caches. **Check** the same state built through different allocation orders. Compare the canonical views, then change a gameplay-critical value and confirm that the difference appears.
+- Compare equivalent points in time. Record build, content version, inputs, tick, and phase, then add per-system fingerprints at meaningful checkpoints. Keep a bounded history and rerun the input trace with targeted captures. **Check** introduce a known mismatch in a test fixture during one phase and confirm the report identifies the earliest measured difference.
+- Produce field-level reports once a subsystem differs. Separate added, removed, and changed records and keep both expected and observed values. Distinguish the first observed mismatch from its root cause. **Check** create a missing entity, an extra entity, and a changed attribute in separate runs. Verify the three outcomes are easy to distinguish and link back to the matching inputs.
+- Define which comparisons must be exact and which can tolerate numeric differences. In a deterministic simulation, preserve exact checks for fields that can affect future ticks. Allow explicitly scoped tolerances for outputs such as visual poses when the test contract permits them. **Check** compare a sub-tolerance presentation change and a small simulation change that crosses a rule threshold. Verify that only the presentation difference is suppressed.

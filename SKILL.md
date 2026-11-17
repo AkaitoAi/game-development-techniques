@@ -57,6 +57,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Mobile memory pressure](references/mobile-memory-pressure.md) | Peak memory, pressure signals, asset eviction, and recovery |
 | [Physics](references/physics.md) | Collision, simulation timing, character movement, or contact stability |
 | [Physics query architecture](references/physics-query-architecture.md) | Query timing, collision filters, batch scheduling, and result validity |
+| [Physics substep events](references/game-engine-substep-events.md) | Bridging physics callbacks to gameplay, contact lifetimes, and event deduplication |
 | [Game math](references/game-math.md) | Vectors, coordinate transforms, rotations, interpolation, probability, and numerical precision |
 | [Cross-platform determinism](references/cross-platform-determinism.md) | Reproducible simulation, stable ordering, numeric behavior, and desync diagnosis |
 | [Deterministic random streams](references/deterministic-random-streams.md) | Seed ownership, independent random streams, replay, and diagnostics |
@@ -203,6 +204,9 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Spatial indexing](references/spatial-indexing.md) | Spatial queries, moving objects, partitioning, and correctness under load |
 | [Game engine memory allocators](references/game-engine-memory-allocators.md) | Arenas, alignment, lifetime classes, and fragmentation |
 | [Gameplay messaging](references/gameplay-messaging.md) | Events, commands, ordering, subscriber lifetimes, and debugging |
+| [Gameplay event ordering](references/gameplay-event-ordering.md) | Same-tick precedence, nested events, and deterministic delivery |
+| [Game state diffing](references/game-state-diffing.md) | Comparing simulation snapshots and diagnosing divergent state |
+| [Game resource handles and registries](references/game-resource-handles-and-registries.md) | Typed resource identity, handle resolution, reloads, and lifetime validation |
 | [Resimulation-safe gameplay events](references/resimulation-safe-gameplay-events.md) | Replayable events, confirmed side effects, and feedback deduplication |
 | [Network message schema evolution](references/network-message-schema-evolution.md) | Protocol compatibility, message versions, and mixed-build validation |
 | [Data-driven gameplay](references/data-driven-gameplay.md) | Authored definitions, validation, versioning, and runtime state boundaries |
