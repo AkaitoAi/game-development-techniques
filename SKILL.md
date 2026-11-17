@@ -163,6 +163,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game module dependencies](references/game-module-dependencies.md) | Module boundaries, dependency direction, and build-time coupling |
 | [Gameplay hot reload](references/gameplay-hot-reload.md) | Reloading gameplay data or code, preserving state, and handling failures |
 | [Async asset lifetimes](references/async-asset-lifetimes.md) | Load requests, cancellation, ownership, shared dependencies, and release |
+| [Game asset dependency graphs](references/game-asset-dependency-graphs.md) | Dependency discovery, stable IDs, invalidation, and bundle validation |
+| [Gameplay serialization and snapshots](references/gameplay-serialization-and-snapshots.md) | Runtime state capture, restoration, identity, and replay checks |
+| [Game engine job scheduling](references/game-engine-job-scheduling.md) | Dependencies, task granularity, critical paths, and frame budgets |
+| [Game runtime feature flags](references/game-runtime-feature-flags.md) | Runtime configuration contracts, coordinated activation, and recovery |
 | [Save schema migrations](references/save-schema-migrations.md) | Versioned formats, content identifiers, migration chains, and recovery |
 | [Entity identifiers and handles](references/entity-identifiers-and-handles.md) | Stale references, recycled slots, persistent IDs, and deferred resolution |
 | [Gameplay scripting boundaries](references/gameplay-scripting-boundaries.md) | Script/native contracts, state ownership, reloads, and error handling |
