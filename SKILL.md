@@ -187,6 +187,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Derived asset build caches](references/derived-asset-build-caches.md) | Cache keys, invalidation, artifact consistency, and clean-build checks |
 | [Gameplay serialization and snapshots](references/gameplay-serialization-and-snapshots.md) | Runtime state capture, restoration, identity, and replay checks |
 | [Game engine job scheduling](references/game-engine-job-scheduling.md) | Dependencies, task granularity, critical paths, and frame budgets |
+| [Frame graph profiling](references/game-frame-graph-profiling.md) | Dependency-aware CPU and GPU traces, critical paths, and pipeline stalls |
+| [Background simulation tiers](references/background-simulation-tiers.md) | Update rates, state fidelity, promotion, and background progress |
+| [Gameplay data binding](references/gameplay-data-binding.md) | Observing gameplay state, UI updates, subscriptions, and stale views |
+| [Game asset identity and renames](references/game-asset-identity-and-renames.md) | Stable asset IDs, redirects, refactors, and reference migration |
 | [Animation job pipelines](references/game-animation-job-pipelines.md) | Parallel pose evaluation, dependency barriers, and presentation handoff |
 | [Gameplay invariants and validation](references/gameplay-invariants-and-validation.md) | Rules that must hold across transitions, authoring checks, and runtime diagnostics |
 | [Gameplay tags and capabilities](references/gameplay-tags-and-capabilities.md) | Shared vocabulary, eligibility queries, grants, and state cleanup |
