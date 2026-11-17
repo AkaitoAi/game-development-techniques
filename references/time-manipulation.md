@@ -1,0 +1,20 @@
+# Time manipulation as a game mechanic
+
+## Problem and design reasoning
+
+When players can alter time, time becomes part of the rules they reason about. A mechanic breaks down when the scene looks rewound but physics or quest state remains in the future, or when players cannot tell which effects survive a loop. Decide what player decision the mechanic enables before implementing the clock or history.
+
+Jonathan Blow's GDC 2010 session explains why *Braid* required accurate restoration. Its puzzles rely on rewind, and the implementation needed to fit substantial history into a constrained console memory budget. Arkane Lyon's Paweł Kroenke describes a different design constraint for *Deathloop*: making one repeated day support a narrative while preserving player freedom. A transferable inference is that moment-to-moment experimentation needs faithful state recovery, while a repeating day can emphasize learning and distinct persistent progress. [Braid rewind talk, GDC 2010](https://www.gdcvault.com/play/1012210/The-Implementation-of-Rewind-inJonathan) · [Deathloop narrative design talk, GDC 2022](https://gdcvault.com/play/1027796/How-a-Time-Loop-Influenced)
+
+## Shipped examples
+
+- *Braid* lets players rewind at will. Blow's talk documents a target of 30 to 60 minutes of recorded gameplay within 40 MB on consoles. Treat that as a project constraint from the talk, not a general budget for rewind. [Jonathan Blow, The Implementation of Rewind in Braid](https://www.gdcvault.com/play/1012210/The-Implementation-of-Rewind-inJonathan)
+- *Deathloop* builds a narrative around a repeating day. Its level design talk describes keeping the central puzzle understandable while revisiting the same four maps. [Paweł Kroenke, GDC 2022](https://gdcvault.com/play/1027796/How-a-Time-Loop-Influenced) · [Sebastien Meghan Hannier's GDC level design session](https://www.gdcvault.com/play/1027993/Level-Design-Summit-Deathloop-How)
+- *Outer Wilds* connects a changing, repeating solar system to curiosity-driven exploration. Kelsey Beachum describes using narrative discoveries to give players their own reasons to choose where to go. [Independent Games Summit, GDC 2021](https://www.gdcvault.com/play/1027008)
+
+## Practical techniques
+
+1. Define the affected clocks. For slow time, specify which systems follow scaled simulation time and which follow real time. Keep input sampling and user interface responsive and author the intended behavior of physics, animation, timers, audio, and effects. **Check** slow time, pause, and normal time in sequence at different render rates. Compare intended movement distances and cooldown durations, and test a trigger during each transition.
+2. Restore gameplay state at tick boundaries. For a continuous rewind, start by storing authoritative state for a small scene. Include spawned and removed actors, timers, random state, and transient gameplay rules. Scale with snapshots and bounded reconstruction after measuring memory and restore cost. **Check** rewind across actor creation and removal, contact changes, and an interrupted animation. Compare reconstructed state against recorded tick states and measure peak history size.
+3. Define what happens when play resumes. Drop the abandoned future unless the mechanic deliberately retains it. Isolate audiovisual presentation from gameplay event execution so scrubbing through an event never grants the same reward twice. **Check** rewind to just before a one-shot interaction and take a new action. Confirm the abandoned outcome disappears, later commands cannot affect the new trajectory, and the intended rewards occur exactly once.
+4. Specify persistence across a loop. Write down what the world resets, what the player can keep, and what only the player knows. Give repeated spaces time-dependent reasons to revisit them and provide an intelligible cue when the day resets. **Check** encounter a clue, finish a loop with a partial objective, and load a saved game on both sides of a reset. Verify a player can explain what carried over and why.

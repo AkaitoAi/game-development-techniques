@@ -1,0 +1,17 @@
+# Enemy spawn directors
+
+## Problem and design reasoning
+
+In an encounter system with fixed wave times, a fast group may never feel pressure while a recovering group is repeatedly overwhelmed. A spawn director coordinates where and when enemies enter, while encounter AI controls them once active. Treat pacing, placement, and population as distinct decisions so a desire for more pressure cannot bypass a safe spawn rule or a performance cap.
+
+## Shipped examples
+
+- **Left 4 Dead.** Valve describes an AI Director that estimates survivor intensity and modulates enemy populations between buildup, peak, and recovery phases. The aim was dramatic pacing and replayability for co-op groups. **Inference.** Pressure transitions can preserve the intended rhythm across varying player speeds without changing the rules of each individual enemy. [Mike Booth, GDC 2009 developer talk](https://cdn.fastly.steamstatic.com/apps/valve/2009/GDC2009_ReplayableCooperativeGameDesign_Left4Dead.pdf) · [Valve, companion AI systems presentation](https://cdn.cloudflare.steamstatic.com/apps/valve/2009/ai_systems_of_l4d_mike_booth.pdf)
+- **Warhammer 40,000: Darktide.** Fatshark describes a progression-tracking main path in its conventional missions and explains why Expeditions required different assumptions about player movement and spawn direction. **Inference.** A branching encounter layout benefits from locating the group in navigable space and evaluating current approaches instead of deriving every request from a linear progress counter. [Fatshark, Expeditions design blog](https://www.fatshark.se/news/darktides-new-game-mode-expeditions)
+
+## Techniques and practical checks
+
+- **Model pacing with observable signals.** Track candidate signals such as recent damage, incapacitation, progress, and time since the last threat. Smooth pressure over time and give each phase minimum and maximum durations. Keep per-player measurements visible when aggregating a team value. **Check** replay traces for a confident group, an injured group, and a split group. Confirm each phase can transition, pressure recedes during a lull, and a single noisy sample cannot repeatedly flip the phase.
+- **Separate where from when.** Have the pacing model request a threat type and budget. Evaluate candidates for nav reachability, arrival distance, visibility to relevant players, role constraints, and recent reuse. Defer or cancel a request if the eligible set is empty. **Check** turn all player cameras toward expected spawn sites and close a route while a request is pending. Verify the director waits or picks a valid alternative.
+- **Track active and pending budgets.** Reserve capacity when scheduling a group and release it when a request is canceled or completes. Apply limits to expensive enemy roles and let authored sequences reserve compatible budget. **Check** trigger simultaneous scripted and systemic requests during a checkpoint transition. Confirm peak population remains within bounds and a canceled reservation can be reused.
+- **Log reasons and test pacing over many runs.** Record the current phase, input signals, influential thresholds, spawn rejections, and budget changes for a repeatable seed or recorded trace. Observe time in high pressure and recovery, failed placements, and peak update cost. **Check** compare the same scenario before and after changing one spawn weight. Confirm the intended encounter mix changes while recovery opportunities and population bounds still hold.

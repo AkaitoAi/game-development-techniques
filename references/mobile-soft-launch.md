@@ -1,0 +1,17 @@
+# Mobile soft launch
+
+## Problem and design reasoning
+
+A global launch commits a game to a broad audience before every device, storefront, and onboarding assumption has been tested under ordinary store conditions. A mobile soft launch is a limited public release with a decision attached to it. Define what must improve before expanding, which changes might invalidate earlier comparisons, and what will happen to existing players if the test ends.
+
+## Shipped examples and conference material
+
+- **Brawl Stars.** Supercell kept the game in limited-country soft launch for 18 months and changed both its metagame and display orientation before global release. Supercell says community feedback helped inform the launch decision. A design inference is that the release should be structured to accommodate changes to the core experience when evidence warrants them. [Supercell launch retrospective](https://supercell.com/en/news/brawl-stars-goes-global/7099/) · [Supercell 2019 retrospective](https://supercell.com/en/news/my-take-supercell-2019-we-enter-our-second-decade/7427/)
+- **Shattered Planet.** At GDC 2015, Kitfox co-founder Jongwoo Kim showed separate iOS and Android soft-launch and global-launch dates, followed by a Steam release, and reported distinct install and revenue outcomes per platform. This illustrates why platform results should remain separately identifiable throughout a test. [Two Audiences, One Game: Shattered Planet on Mobile and Steam, GDC 2015](https://media.gdcvault.com/gdc2015/presentations/Kim_Jongwoo_TwoAudiencesOne.pdf)
+
+## Implementation and verification
+
+1. **Define the expansion decision.** Choose the problem to investigate and write down acceptance thresholds, a measurement window, and stop conditions. Pair a player-experience outcome with guardrails such as crash rate, save integrity, and support load. **Check** have two team members independently apply the rules to a sample report. Confirm they reach the same expand, repeat, or pause decision.
+2. **Choose cohorts that exercise the actual constraints.** Define why a region or distribution cohort is useful, such as a particular mix of devices, connectivity, or localization. Record eligibility, version, and exposure dates. Treat claims about the wider audience as hypotheses when the pilot differs. **Check** compare the pilot and intended launch audiences by device tier, language, distribution channel, and network quality. Name at least one assumption requiring another cohort.
+3. **Validate instrumentation before drawing conclusions.** Confirm that the installed build logs first launch, playable entry, key tutorial actions, and return visits under the correct version and cohort. Record crash or download failures that occur before the core loop. **Check** exercise a fresh install, reinstall, offline entry, and upgrade. Reconcile expected actions against recorded events and verify that late arrivals do not shift cohort membership.
+4. **Protect existing players during expansion.** Plan for save migration, service load, and support for players already in the limited release. Set expectations about purchases, progress, and availability before enrollment. **Check** walk a pilot account through the global candidate alongside a new account. Verify that the old account retains promised progress, any purchased items resolve correctly, and both accounts can enter the first playable session.

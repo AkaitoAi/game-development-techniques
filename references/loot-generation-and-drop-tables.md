@@ -1,0 +1,20 @@
+# Loot generation and drop tables
+
+## Problem and design reasoning
+
+An upgrade system can offer many possible rewards while frequently giving players items their current builds cannot use. Blizzard's Diablo III Loot 2.0 used eligibility rules on class-specific gear and a chance to favor useful stats for the active class. Bungie offered a different form of relevance in Destiny 2 by letting players select a desired weapon and raise its drop chance in a specific activity. A design inference is that filtering impossible combinations and biasing outcomes toward a target solve different problems. Eligibility keeps the item valid, while weighted selection can leave alternatives available. [Blizzard’s Loot 2.0 patch notes](https://news.blizzard.com/en-gb/article/12671560/patch-2-0-1-now-live) · [Bungie’s Onslaught attunement notes](https://www.bungie.net/7/en/News/article/destiny_2_update_805)
+
+## Shipped examples and developer talks
+
+| Game | Shipped approach |
+|---|---|
+| **Diablo III, patch 2.0.1** | Smart Loot could bias rolls toward the character’s needs. Class-specific items excluded irrelevant stats, and primary and secondary properties occupied separate categories. Blizzard said the categories were intended to keep direct and indirect increases in character power from competing. [Blizzard patch notes](https://news.blizzard.com/en-gb/article/12671560/patch-2-0-1-now-live) |
+| **Destiny 2, update 8.0.5** | Onslaught attunement let players boost the drop chance for one selected BRAVE weapon. Bungie described the feature as a way to help players pursue a desired weapon roll while retaining random drops. [Bungie’s developer update](https://www.bungie.net/7/en/News/article/twid-07-25-2024) |
+| **Path of Exile** | Grinding Gear Games' Chris Wilson described using overlapping forms of randomness to keep repeated play varied. The conference discussion supports the design goal. It leaves the exact probabilities and implementation of individual tables unspecified. [Designing Path of Exile to Be Played Forever, GDC 2019](https://www.gdcvault.com/play/1025784/Designing-Path-of-Exile-to) |
+
+## Techniques and practical checks
+
+- **Make eligibility explicit.** Author requirements for each reward source and filter invalid outcomes before rolling. Give a deliberate empty result its own entry when a source can legitimately yield nothing. Add diagnostics for invalid or accidentally empty pools. **Check** by enumerating representative classes, difficulty levels, versions, and activity modes. Assert that every eligible entry can be selected, incompatible items never appear, and empty pools produce the defined result.
+- **Distinguish weights from final odds.** For one weighted draw from an eligible set with positive total weight, the probability of entry i is its weight divided by the eligible weights’ sum. Conditional rolls multiply along each path, and distinct paths to the same outcome add together. **Check** a small table with hand-calculated probabilities, then simulate draws with fixed seeds and compare sample proportions and uncertainty to the expected values. Include an eligibility change that alters the denominator.
+- **Separate base item and modifiers.** Build a roll in clear stages and encode affix groups, exclusions, and allowed ranges. Define the fallback when compatibility rules exhaust the candidates, and preserve generated rolls in saved inventory when updating tables. **Check** maximum and minimum levels, exhausted affix pools, a rare base item, and old saves across a table change. Verify existing rolls still match their saved properties and newly generated ones obey the new rules.
+- **Bound extended bad luck where progression depends on a drop.** Consider a guaranteed fallback, earned selection, or duplicate protection when long droughts block play. Keep any counters scoped to the intended reward or activity. **Check** the median, upper-percentile, and worst guaranteed wait across simulated sessions. Verify boundary behavior when changing targets, reconnecting, and retrying a grant so the same completion cannot consume the counter or award loot twice.

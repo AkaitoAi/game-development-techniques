@@ -1,0 +1,14 @@
+# Gameplay state machines
+
+## Problem and design reasoning
+
+A round can award points twice, continue accepting inputs during results, or stall when recovery and completion arrive at the same time. Use an explicit state machine when mutually exclusive gameplay phases imply different rules. Let the phase owner decide when a phase changes and publish the committed result for animation, audio, and UI.
+
+In the released *Doom* source, the game tick dispatches updates by phase, including active play and intermission. The distinction between the current phase and pending actions such as loading the next map illustrates a useful model for coordinating several presentation systems. Jeff Orkin's GDC talk on *F.E.A.R.* describes pairing a three-state execution machine with a planner to accommodate flexible AI behavior. The transferable inference is to give a state a durable execution responsibility and let a separate decision layer select among eligible actions when combinations grow. [id Software, Doom game loop](https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/g_game.c) · [Jeff Orkin, Three States and a Plan: The AI of F.E.A.R., GDC 2006](https://www.gdcvault.com/play/1013282/Three-States-and-a)
+
+## Techniques and practical checks
+
+- **Make legal transitions visible.** Describe each phase, accepted events, guards, and committed effects. For a round, name the point when scores stop changing and which inputs still work on the results screen. **Check** every permitted edge and reject an early start, late score, and repeated finish. Verify the underlying phase and the displayed phase together.
+- **Resolve competing events at a single boundary.** Decide which event wins if timeout, objective completion, and pause arrive in one simulation step. Group score changes and transition effects under a round identifier so duplicates cannot restart the phase. **Check** permutations of those events at the boundary, including the same completion delivered twice. Verify one result and one reward.
+- **Separate independent decisions.** Keep global round phase and local action phase separate where each has its own owner. Apply explicit gates between them, such as disabling new ability activation once results begin. **Check** by holding an action across the phase change and reopening gameplay. Verify that a queued action from the previous phase cannot cross the boundary unless the rules allow it.
+- **Restore state and make decisions observable.** Persist the committed phase, relevant deadlines, and evidence that one-time effects have run. Log previous state, event, guard result, new state, and simulation tick. **Check** save and reload during the longest phase, immediately before a transition, and after rewards commit. Compare replay traces and verify that the player can always reach an appropriate next phase.

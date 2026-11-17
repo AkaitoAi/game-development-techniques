@@ -1,0 +1,17 @@
+# Rollback in fighting games
+
+## Problem and design reasoning
+
+An online fighter has to preserve the timing of local inputs while remote inputs may arrive late. A fully waiting simulation turns network jitter into variable input latency. Rollback runs a tentative frame, then restores earlier state and replays when the remote input differs. This shifts work from waiting to state capture, correction, and resimulation. Frame-critical rules such as input buffers, hitstop, and invulnerability must reproduce exactly.
+
+## Shipped examples
+
+- **Mortal Kombat XL and Injustice 2.** Michael Stallone describes retrofitting rollback into NetherRealm's engine and optimizing it to restore and simulate as many as eight frames within 16 ms. The documented goal was responsive local control. **Inference.** An eight-frame recovery target is useful as a capacity example. Each game must establish its own safe replay window from its worst-case frame timings. [NetherRealm, GDC 2018 talk](https://www.gdcvault.com/play/1025021/8-Frames-in-16ms-Rollback) · [Presentation slides](https://media.gdcvault.com/gdc2018/presentations/Stallone_Michael_8FramesIn16ms.pdf)
+- **Guilty Gear XX Accent Core Plus R.** Arc System Works shipped GGPO rollback support on PC after beta testing. The publisher presented reduced input delay as the motivation. **Inference.** A retrofit needs compatibility tests around game rules established before the networking change, particularly where players depend on precise timing. [Arc System Works release announcement](https://www.arcsystemworks.com/rollback-netcode-comes-to-guilty-gear-xx-accent-core-plus-r-on-pc/)
+
+## Techniques and practical checks
+
+- **Record input per simulation frame.** Use a fixed gameplay tick and distinguish confirmed input from predicted input. A simple starting predictor repeats the last known held input. On a mismatch, restore the snapshot before the earliest divergent frame and replay inputs in frame order. **Check** run one recorded match twice, first with all inputs on time and then with delayed releases and reversals. Confirm identical state at the same fully confirmed frame.
+- **Include combat timing in snapshots.** Preserve command history, facing, hitstop counters, collision state, random streams, round timers, and pending rules-driven events. Define the snapshot boundary before mutating the frame. **Check** inject mismatches just before a side switch, during hitstop, and on a round-ending trade. Compare per-frame hashes and identify the first differing rule state when replay diverges.
+- **Separate replayable state from presentation.** Reconstruct visual state from simulation where practical. Use stable event identities to prevent restarting the same sound or rumble on every resimulation. Delay highly disruptive effects until confirmation when the game can tolerate the extra presentation latency. **Check** predict a hit that becomes a block or whiff. Compare visible correction, duplicated feedback, and round-end effects across repeated runs.
+- **Budget correction depth.** Instrument snapshot size, restore time, replay ticks, and render deadlines under a complex matchup. Define a bounded response when latency exceeds stored history, such as slowing progression or ending the match with a clear connection result. **Check** replay a captured jitter profile and packet-loss bursts on the slowest supported device. Confirm that correction cost and local input delay stay within their budgets and out-of-window cases use the defined policy.
