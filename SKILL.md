@@ -26,6 +26,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Color and visual readability](references/color-and-visual-readability.md) | Contrast, silhouettes, state cues, and color-independent recognition |
 | [Rendering pipelines](references/rendering-pipelines.md) | Pass structure, buffers, visibility, and renderer architecture |
 | [Render graph architecture](references/render-graph-architecture.md) | Pass dependencies, transient resources, barriers, and render scheduling |
+| [GPU resource lifetimes](references/gpu-resource-lifetimes.md) | Completion fences, upload buffers, descriptor reuse, and retirement |
 | [Mobile graphics scaling](references/mobile-graphics-scaling.md) | GPU tiers, dynamic quality, and visual quality floors |
 | [Mobile shader budgets](references/mobile-shader-budgets.md) | Shader complexity, render passes, precision, and on-device profiling |
 | [Mobile frame pacing](references/mobile-frame-pacing.md) | Refresh modes, frame intervals, missed deadlines, and presentation timing |
@@ -58,6 +59,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Physics query architecture](references/physics-query-architecture.md) | Query timing, collision filters, batch scheduling, and result validity |
 | [Game math](references/game-math.md) | Vectors, coordinate transforms, rotations, interpolation, probability, and numerical precision |
 | [Cross-platform determinism](references/cross-platform-determinism.md) | Reproducible simulation, stable ordering, numeric behavior, and desync diagnosis |
+| [Deterministic random streams](references/deterministic-random-streams.md) | Seed ownership, independent random streams, replay, and diagnostics |
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
@@ -101,6 +103,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Vehicle controllers](references/vehicle-controllers.md) | Steering, handling, traction, and vehicle simulation |
 | [Controller types](references/controller-types.md) | Choosing a movement or control model for a new feature |
 | [Multiplayer movement](references/multiplayer-movement.md) | Movement authority, prediction, correction, and remote motion under latency |
+| [Simulation snapshot interpolation](references/simulation-snapshot-interpolation.md) | Buffered snapshots, presentation time, discontinuities, and jitter handling |
 | [Rollback in fighting games](references/rollback-fighting-games.md) | Predicted input, state restoration, resimulation, and visual correction |
 | [Split-screen and local multiplayer](references/split-screen-and-local-multiplayer.md) | Viewport layout, local player ownership, joining, and shared performance |
 | [Multiplayer matchmaking](references/multiplayer-matchmaking.md) | Queue policy, skill balance, network quality, and team assembly |
@@ -177,6 +180,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Async asset lifetimes](references/async-asset-lifetimes.md) | Load requests, cancellation, ownership, shared dependencies, and release |
 | [Asynchronous task cancellation](references/asynchronous-task-cancellation.md) | Scoped work, cancellation propagation, completion races, and teardown |
 | [Game asset dependency graphs](references/game-asset-dependency-graphs.md) | Dependency discovery, stable IDs, invalidation, and bundle validation |
+| [Derived asset build caches](references/derived-asset-build-caches.md) | Cache keys, invalidation, artifact consistency, and clean-build checks |
 | [Gameplay serialization and snapshots](references/gameplay-serialization-and-snapshots.md) | Runtime state capture, restoration, identity, and replay checks |
 | [Game engine job scheduling](references/game-engine-job-scheduling.md) | Dependencies, task granularity, critical paths, and frame budgets |
 | [Animation job pipelines](references/game-animation-job-pipelines.md) | Parallel pose evaluation, dependency barriers, and presentation handoff |
