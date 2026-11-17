@@ -25,6 +25,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [HDR and post-processing](references/hdr-and-post-processing.md) | Exposure, tone mapping, color grading, and display output |
 | [Color and visual readability](references/color-and-visual-readability.md) | Contrast, silhouettes, state cues, and color-independent recognition |
 | [Rendering pipelines](references/rendering-pipelines.md) | Pass structure, buffers, visibility, and renderer architecture |
+| [Render graph architecture](references/render-graph-architecture.md) | Pass dependencies, transient resources, barriers, and render scheduling |
 | [Mobile graphics scaling](references/mobile-graphics-scaling.md) | GPU tiers, dynamic quality, and visual quality floors |
 | [Mobile shader budgets](references/mobile-shader-budgets.md) | Shader complexity, render passes, precision, and on-device profiling |
 | [Mobile frame pacing](references/mobile-frame-pacing.md) | Refresh modes, frame intervals, missed deadlines, and presentation timing |
@@ -54,6 +55,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Mobile thermals and battery](references/mobile-thermal-and-battery.md) | Sustained device performance, thermal throttling, and power budgets |
 | [Mobile memory pressure](references/mobile-memory-pressure.md) | Peak memory, pressure signals, asset eviction, and recovery |
 | [Physics](references/physics.md) | Collision, simulation timing, character movement, or contact stability |
+| [Physics query architecture](references/physics-query-architecture.md) | Query timing, collision filters, batch scheduling, and result validity |
 | [Game math](references/game-math.md) | Vectors, coordinate transforms, rotations, interpolation, probability, and numerical precision |
 | [Cross-platform determinism](references/cross-platform-determinism.md) | Reproducible simulation, stable ordering, numeric behavior, and desync diagnosis |
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
@@ -171,6 +173,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Simulation record-and-replay testing](references/simulation-record-and-replay-testing.md) | Capturing regression traces, replaying inputs, and locating divergence |
 | [Gameplay hot reload](references/gameplay-hot-reload.md) | Reloading gameplay data or code, preserving state, and handling failures |
 | [Async asset lifetimes](references/async-asset-lifetimes.md) | Load requests, cancellation, ownership, shared dependencies, and release |
+| [Asynchronous task cancellation](references/asynchronous-task-cancellation.md) | Scoped work, cancellation propagation, completion races, and teardown |
 | [Game asset dependency graphs](references/game-asset-dependency-graphs.md) | Dependency discovery, stable IDs, invalidation, and bundle validation |
 | [Gameplay serialization and snapshots](references/gameplay-serialization-and-snapshots.md) | Runtime state capture, restoration, identity, and replay checks |
 | [Game engine job scheduling](references/game-engine-job-scheduling.md) | Dependencies, task granularity, critical paths, and frame budgets |
@@ -183,6 +186,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Fixed timestep and update loops](references/fixed-timestep-and-update-loops.md) | Simulation steps, interpolation, scheduling, and hitch behavior |
 | [Runtime debugging tools](references/runtime-debugging-tools.md) | Inspectors, overlays, traces, and reproducible gameplay diagnostics |
 | [Data-oriented architecture](references/data-oriented-architecture.md) | Data layout, batched updates, access patterns, and profiling |
+| [Data layout and cache locality](references/data-layout-and-cache-locality.md) | Hot and cold data, traversal order, memory traffic, and profiling |
 | [Entity-component-system design](references/entity-component-system-design.md) | Component ownership, queries, archetypes, and structural changes |
 | [Simulation command buffers](references/simulation-command-buffers.md) | Deferred mutations, playback barriers, conflict resolution, and ordering |
 | [Spatial indexing](references/spatial-indexing.md) | Spatial queries, moving objects, partitioning, and correctness under load |
