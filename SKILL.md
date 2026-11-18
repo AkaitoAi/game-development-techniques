@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Projectile simulation](references/projectile-simulation.md) | Fictional projectile movement, sweeps, lifetimes, and authority |
+| [Melee hit detection](references/melee-hit-detection.md) | Attack windows, swept shapes, contact identity, and timing |
+| [Audio voice allocation](references/audio-voice-allocation.md) | Voice limits, priorities, virtualization, and emitter lifetimes |
+| [Runtime spline following](references/runtime-spline-following.md) | Distance parameterization, curve traversal, orientation, and live edits |
 | [Save commit protocols](references/game-save-commit-protocols.md) | Durable staging, publication, recovery, and interrupted writes |
 | [Gameplay timer schedulers](references/gameplay-timer-schedulers.md) | Timer ownership, cancellation, ordering, and simulation clocks |
 | [Runtime type information](references/game-runtime-type-information.md) | Reflection metadata, type registration, serialization, and tooling |
