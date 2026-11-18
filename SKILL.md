@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Runtime decal programming](references/runtime-decal-programming.md) | Placement, surface attachment, pooling, and retirement |
+| [Particle event programming](references/particle-event-programming.md) | Simulation events, CPU and GPU delivery, bounds, and callback ownership |
+| [Gameplay save dirty tracking](references/gameplay-save-dirty-tracking.md) | Dirty revisions, snapshot capture, completion, and repeat writes |
+| [Runtime property change tracking](references/runtime-property-change-tracking.md) | Mutation ownership, revision counters, observers, and change coalescing |
 | [Physics query result lifetimes](references/physics-query-result-lifetimes.md) | Result snapshots, object generations, delayed consumption, and buffer reuse |
 | [Runtime bounds maintenance](references/runtime-bounds-maintenance.md) | Dirty bounds, transforms, deformation, and conservative visibility |
 | [Network entity spawn ordering](references/network-entity-spawn-ordering.md) | Replica readiness, dependency references, reordering, and retirement |

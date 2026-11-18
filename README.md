@@ -1,6 +1,6 @@
 # Game Development Techniques
 
-An agent skill with 342 references for designing, implementing, and verifying game features. The guides use shipped-game examples and developer sources to explain the problems each technique solves and how to check it in your project.
+An agent skill with 346 references for designing, implementing, and verifying game features. The guides use shipped-game examples and developer sources to explain the problems each technique solves and how to check it in your project.
 
 ## Use the skill
 
