@@ -1,0 +1,14 @@
+# Runtime collision cooking
+
+## Problem and design reasoning
+
+Editable geometry can be rendered before its collision acceleration data is ready. Rebuilding collision synchronously can cause a hitch, while asynchronous work can complete after its target has been edited again or unloaded. *Astroneer* provides a shipped example of this consistency risk: System Era fixed items passing through cave layers after terrain relevance changed. Its GDC Summer design talk explains why editable terrain is central to play. These sources motivate the problem and testing conditions, without documenting a particular cooking implementation. [System Era, update 1.26](https://blog.astroneer.space/p/update-1-26/) · [Aaron Biddlecom, Mining Your Own Design, GDC Summer 2020](https://media.gdcvault.com/gdcsummer2020/presentations/Biddlecom-Aaron-MiningYourOwnDesign.pdf)
+
+Epic exposes both deferred collision updates and asynchronous cooking on its dynamic mesh component. Moving preparation away from the game thread trades immediate availability for scheduling freedom. The portable revision and publication protocol below is a recommended design, whose suitability depends on the engine's supported collision formats and threading rules. [Epic, UDynamicMeshComponent](https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Runtime/GeometryFramework/UDynamicMeshComponent)
+
+## Techniques and practical checks
+
+- **Cook from immutable geometry.** Capture positions, indices, collision settings, and the source revision together. Validate topology and engine restrictions before scheduling. **Check** empty geometry, degenerate triangles, and rapid vertex edits while a cook runs. Confirm workers read a stable input and failures leave a documented fallback.
+- **Reject stale completions.** Carry a target generation and revision with every cook. Resolve the target again at completion and publish only when both match the current requested revision. **Check** delete and recreate a region or pooled object before completion. Verify the old job cannot install its collider on the replacement.
+- **Swap at a safe physics boundary.** Follow the engine's scene-mutation contract when replacing a shape. Retain the previous collider or an explicit fallback until the new one is ready, then retire old data after its final possible use. **Check** rebuild beneath sleeping bodies and during contact. Inspect penetration, wake-up behavior, contact events, and the maximum visible-to-physical mismatch.
+- **Coalesce work and bound queues.** Merge repeated dirty notifications for the same region, cap simultaneous cooks, and prioritize geometry near active interaction. Track cancellation separately from worker completion. **Check** sustain edits faster than cooking can complete, then stop editing. Verify bounded memory, eventual convergence to the latest revision, and teardown with no orphan collider or callback.

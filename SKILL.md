@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Runtime texture generation](references/runtime-texture-generation.md) | Dirty regions, texture uploads, revisions, and GPU ownership |
+| [GPU readback pipelines](references/gpu-readback-pipelines.md) | Asynchronous results, staging buffers, latency, and stale data |
+| [Terrain editing programming](references/terrain-editing-programming.md) | Edit commands, chunk dependencies, revisions, and persistence |
+| [Runtime collision cooking](references/runtime-collision-cooking.md) | Collision data generation, publication, ownership, and version consistency |
 | [Asynchronous path requests](references/asynchronous-path-requests.md) | Request ownership, stale results, priorities, and cancellation |
 | [Runtime navigation links](references/runtime-navigation-links.md) | Traversal eligibility, reservations, execution, and invalidation |
 | [Runtime text layout and font caches](references/runtime-text-layout-and-font-caches.md) | Shaping, glyph residency, layout invalidation, and fallback fonts |

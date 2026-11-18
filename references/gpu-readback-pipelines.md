@@ -1,0 +1,16 @@
+# GPU readback pipelines
+
+## Problem and design reasoning
+
+A CPU system that immediately asks for the result of just-submitted GPU work can serialize both processors. Deferring a result avoids some waits but introduces an age and identity problem. In the shipped *Splinter Cell: Conviction* visibility system, GPU bounds tests produced a compact result that was copied back for CPU processing. Stephen Hill and Daniel Collin explain both the transfer path and why delayed visibility results can produce popping when objects or the camera move. Their account follows Hill's *Rendering with Conviction* Gamefest/GDC presentation. [Hill and Collin, Practical, Dynamic Visibility for Games](https://blog.selfshadow.com/publications/practical-visibility/) · [Stephen Hill's developer publication notes](https://blog.selfshadow.com/publications/)
+
+The same account describes DICE choosing CPU visibility processing for *Battlefield: Bad Company* because the team wanted dynamic occlusion, low GPU overhead, and CPU-accessible results. A readback is therefore an architecture decision about where the result is needed and how old it may be. The staged asynchronous protocol below is a portable recommendation. Microsoft's D3D12 guidance establishes that mapping a readback buffer itself does not synchronize with the GPU, so a completion mechanism must determine when reading is safe. [Microsoft, Read back data via a buffer](https://learn.microsoft.com/en-us/windows/win32/direct3d12/readback-data-using-heaps)
+
+## Techniques and practical checks
+
+- **Reduce the transferred result.** Keep GPU-only decisions on the GPU where appropriate. When the CPU needs data, emit compact records or a reduced summary with an explicit count and overflow policy. **Check** an empty result, a full result, and an overflow case. Compare with a reference implementation and measure transferred bytes and GPU reduction cost together.
+- **Track every in-flight slot.** Use a bounded set of staging resources, recording request ID, source revision, dimensions or stride, and completion state. Reuse a slot only after its GPU write and CPU consumption are finished. **Check** several delayed requests followed by a burst of new ones. Verify bounded memory, correct record ownership, and the intended queue-full response.
+- **Consume completed data without blocking the frame.** Poll or receive completion and process only ready requests. Define how old results may be and whether stale data can be discarded, retained for diagnostics, or used conservatively. **Check** a camera teleport, deleted object, and new simulation revision while a request is pending. Verify that an old result cannot update a reused object or hide newly visible content.
+- **Make teardown and formats explicit.** Copy to a CPU-readable layout with verified element size, row pitch where relevant, and supported alignment. Cancel consumers during teardown while preserving resource lifetime until GPU work is safe to retire. **Check** resizing the source, leaving the scene, device recovery where supported, and padded layouts. Validate known patterns and trace that no callback reads freed storage.
+
+For fence-based retirement, see [GPU resource lifetimes](gpu-resource-lifetimes.md). For query-generation choices, see [GPU-driven rendering](gpu-driven-rendering.md).
