@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Asynchronous path requests](references/asynchronous-path-requests.md) | Request ownership, stale results, priorities, and cancellation |
+| [Runtime navigation links](references/runtime-navigation-links.md) | Traversal eligibility, reservations, execution, and invalidation |
+| [Runtime text layout and font caches](references/runtime-text-layout-and-font-caches.md) | Shaping, glyph residency, layout invalidation, and fallback fonts |
+| [UI focus navigation programming](references/ui-focus-navigation-programming.md) | Focus ownership, navigation graphs, modal restoration, and dynamic lists |
 | [Moving platform programming](references/moving-platform-programming.md) | Relative movement, carrying, rotations, detachment, and collision |
 | [Character grounding and slopes](references/character-grounding-and-slopes.md) | Ground contact, slope classification, snapping, and movement transitions |
 | [Runtime mesh generation](references/runtime-mesh-generation.md) | Geometry buffers, topology, collision updates, and resource ownership |
