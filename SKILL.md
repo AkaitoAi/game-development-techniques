@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Input action contexts](references/input-action-contexts.md) | Context priority, ownership, consumption, and transition behavior |
+| [Gesture recognition programming](references/gesture-recognition-programming.md) | Pointer lifetimes, recognition thresholds, cancellation, and competing gestures |
+| [Physics sleep and activation](references/physics-sleep-and-activation.md) | Sleep thresholds, wake propagation, activation ownership, and stability |
+| [Continuous collision detection](references/continuous-collision-detection.md) | Swept motion, time of impact, fast bodies, and collision budgets |
 | [Runtime texture generation](references/runtime-texture-generation.md) | Dirty regions, texture uploads, revisions, and GPU ownership |
 | [GPU readback pipelines](references/gpu-readback-pipelines.md) | Asynchronous results, staging buffers, latency, and stale data |
 | [Terrain editing programming](references/terrain-editing-programming.md) | Edit commands, chunk dependencies, revisions, and persistence |
