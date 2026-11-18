@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Enemy telegraph design](references/enemy-telegraph-design.md) | Warning timing, threat recognition, response opportunities, and cue overlap |
+| [Mesh baking workflows](references/mesh-baking-workflows.md) | High and low meshes, projection cages, shading bases, and bake checks |
+| [UI notification priority](references/ui-notification-priority.md) | Notification arbitration, lifetime, grouping, and interruption |
+| [Impact sound design](references/impact-sound-design.md) | Material pairs, contact strength, outcome cues, and mix clarity |
+| [Runtime surface classification](references/runtime-surface-classification.md) | Surface identity, query results, fallbacks, and consumer consistency |
+| [Mesh pivot authoring](references/mesh-pivot-authoring.md) | Placement anchors, rotational behavior, variants, and import checks |
 | [Boss arena design](references/boss-arena-design.md) | Spatial affordances, attack coverage, recovery, and arena state changes |
 | [UV layout authoring](references/uv-layout-authoring.md) | Island planning, seams, density, padding, and import checks |
 | [UI tutorial overlays](references/ui-tutorial-overlays.md) | Context triggers, input ownership, interruption, and tutorial persistence |
