@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Reward reveal design](references/reward-reveal-design.md) | Outcome presentation, pacing, acknowledgment, and recovery |
+| [Character topology for deformation](references/character-topology-for-deformation.md) | Edge flow, joint deformation, silhouette, and pose checks |
+| [UI information hierarchy](references/ui-information-hierarchy.md) | Priority, grouping, progressive disclosure, and information density |
+| [Interactive music stingers](references/interactive-music-stingers.md) | Event accents, musical timing, arbitration, and repetition |
+| [Runtime socket validation](references/runtime-socket-validation.md) | Socket contracts, rig compatibility, missing anchors, and diagnostics |
+| [Asset LOD authoring](references/asset-lod-authoring.md) | Simplification targets, material consistency, transition checks, and import validation |
 | [Encounter role composition](references/encounter-role-composition.md) | Enemy roles, complementary pressures, readable combinations, and pacing |
 | [Hard-surface game assets](references/hard-surface-game-assets.md) | Shape hierarchy, normals, bevels, UVs, and in-game asset checks |
 | [UI error and recovery design](references/ui-error-and-recovery-design.md) | Actionable failures, progress preservation, retries, and recovery paths |
