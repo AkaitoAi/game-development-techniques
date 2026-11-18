@@ -173,6 +173,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Save commit protocols](references/game-save-commit-protocols.md) | Durable staging, publication, recovery, and interrupted writes |
+| [Gameplay timer schedulers](references/gameplay-timer-schedulers.md) | Timer ownership, cancellation, ordering, and simulation clocks |
+| [Runtime type information](references/game-runtime-type-information.md) | Reflection metadata, type registration, serialization, and tooling |
+| [Network replication layouts](references/network-replication-layouts.md) | State layouts, delta serialization, change tracking, and validation |
 | [Gameplay state machines](references/gameplay-state-machines.md) | State ownership, transition guards, interruptions, and recovery |
 | [Engine subsystem lifecycles](references/engine-subsystem-lifecycles.md) | Startup dependencies, scene and session ownership, teardown, and recovery |
 | [Game module dependencies](references/game-module-dependencies.md) | Module boundaries, dependency direction, and build-time coupling |
