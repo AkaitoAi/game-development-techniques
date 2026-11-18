@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Behavior tree programming](references/behavior-tree-programming.md) | Tick semantics, interruption, task state, and debugging |
+| [AI perception programming](references/ai-perception-programming.md) | Sensor queries, memory, event timing, and stale observations |
+| [Runtime trigger volumes](references/runtime-trigger-volumes.md) | Overlap state, enter and exit events, filtering, and lifecycle changes |
+| [Gameplay interaction reservations](references/gameplay-interaction-reservations.md) | Claiming shared interaction points, contention, cancellation, and recovery |
 | [Input action contexts](references/input-action-contexts.md) | Context priority, ownership, consumption, and transition behavior |
 | [Gesture recognition programming](references/gesture-recognition-programming.md) | Pointer lifetimes, recognition thresholds, cancellation, and competing gestures |
 | [Physics sleep and activation](references/physics-sleep-and-activation.md) | Sleep thresholds, wake propagation, activation ownership, and stability |
