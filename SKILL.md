@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Puzzle hint design](references/puzzle-hint-design.md) | Hint escalation, player intent, disclosure timing, and comprehension |
+| [Material blend authoring](references/material-blend-authoring.md) | Surface transitions, blend masks, material consistency, and filtering |
+| [UI progress indicators](references/ui-progress-indicators.md) | Work estimates, stage transitions, uncertain progress, and completion |
+| [Audio state debugging](references/audio-state-debugging.md) | Mix state traces, parameter ownership, stuck events, and reproducible captures |
+| [Runtime mesh attribute updates](references/runtime-mesh-attribute-updates.md) | Vertex streams, dirty ranges, synchronization, and revision validation |
+| [Environmental audio signposting](references/environmental-audio-signposting.md) | Audible landmarks, direction cues, discovery, and mix validation |
 | [Level gating design](references/level-gating-design.md) | Access rules, prerequisite communication, backtracking, and recovery |
 | [Mesh instance variation authoring](references/mesh-instance-variation-authoring.md) | Reusable variants, silhouette diversity, determinism, and asset budgets |
 | [UI comparison layouts](references/ui-comparison-layouts.md) | Comparable values, units, differences, and readable decision layouts |
