@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Save and load threading](references/save-load-threading.md) | Coherent capture, background serialization, restore ownership, and cancellation |
+| [Runtime scene transition programming](references/runtime-scene-transition-programming.md) | Transition state, activation barriers, cancellation, and recovery |
+| [Animation pose caching](references/animation-pose-caching.md) | Cache keys, pose ownership, invalidation, and evaluation cost |
+| [Runtime event subscription lifetimes](references/runtime-event-subscription-lifetimes.md) | Listener identity, registration, unsubscription, and delayed callbacks |
 | [Network packet budgets](references/network-packet-budgets.md) | Packet size, serialization limits, fragmentation, and bandwidth checks |
 | [Replication priority scheduling](references/replication-priority-scheduling.md) | Update urgency, fairness, bandwidth allocation, and stale state |
 | [Runtime sparse containers](references/runtime-sparse-containers.md) | Sparse indexing, dense iteration, mutation, and identity consistency |

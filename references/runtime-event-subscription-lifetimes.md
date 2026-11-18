@@ -1,0 +1,16 @@
+# Runtime event subscription lifetimes
+
+## Problem and design reasoning
+
+An event bus can outlive a scene, UI panel, or pooled actor that listens to it. Registering twice gives duplicate responses, and a queued callback can target an object whose slot now belongs to another actor. Valve's Source SDK game-event interface supplies explicit listener registration, lookup, and removal. It also specifies that the event manager owns the delivered event's storage. Consumers needing data later therefore need an explicit ownership decision. [Valve, game event interface](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/public/igameevents.h)
+
+Bungie's *Destiny* architecture presentation describes broad use of job graphs for responsive gameplay. Applying lifetime checks when events cross worker and gameplay boundaries is an implementation inference from that concurrency problem. The subscription token and cancellation semantics below are recommendations, and the talk does not establish that Destiny used this exact event API. [Barry Genova, Multithreading the Entire Destiny Engine, GDC 2015](https://www.gdcvault.com/play/1022164/Multithreading-the-Entire-)
+
+## Techniques and practical checks
+
+- **Bind registration to an explicit scope.** Return a subscription token owned by a scene, component, or active UI view. Make repeated activation either idempotent or reject a duplicate registration. Dispose tokens when that scope ends, including pool return where an allocation stays alive. **Check** activate and deactivate a listener repeatedly, unload its scene, and recycle its actor. Publish one event after every transition and verify the callback count matches the live subscriptions.
+- **Specify removal during dispatch.** Decide whether listener changes apply immediately or at the next dispatch boundary. A snapshot of listener identities can stabilize iteration, with an active-state check before invocation if removal must suppress a later callback in the same dispatch. **Check** have the first callback remove itself and another listener, add a new listener, and publish a nested event. Record the intended delivery sequence and compare it with the trace.
+- **Validate delayed deliveries at execution.** Queue copied event data or retained immutable payloads according to the publisher's contract. Include the destination's identity and generation when delivery targets an entity. Distinguish cancelling future deliveries from waiting for a callback that is already executing. **Check** hold a queued event, remove the listener, reuse its slot, then release the queue. Confirm the replacement actor receives no stale callback and payload storage is released once.
+- **Make shutdown and leak checks observable.** Trace subscription creation and removal with event name, owner, token, and delivery phase. Give global publishers a defined shutdown point after their producers stop, and detect callbacks after listener teardown. **Check** repeat a menu-open cycle and level transition hundreds of times, then close the session with work queued. Verify live token counts return to baseline and shutdown does not deadlock while waiting for callbacks.
+
+For ordering and audience contracts, see [Gameplay messaging](gameplay-messaging.md). For reusable actors, see [Game object pooling](game-object-pooling.md).
