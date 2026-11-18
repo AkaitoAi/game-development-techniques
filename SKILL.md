@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Player goal signposting](references/player-goal-signposting.md) | Goal transitions, attention cues, confirmation, and recovery from uncertainty |
+| [Environment prop storytelling](references/environment-prop-storytelling.md) | Prop relationships, evidence, composition, and narrative interpretation |
+| [UI icon system design](references/ui-icon-system-design.md) | Symbol vocabulary, ambiguity, consistency, and recognition checks |
+| [Sound variation authoring](references/sound-variation-authoring.md) | Variation sets, repetition limits, parameter ranges, and contextual coherence |
+| [Runtime object highlight programming](references/runtime-object-highlight-programming.md) | Highlight ownership, rendering state, priorities, and cleanup |
+| [Collision proxy authoring](references/collision-proxy-authoring.md) | Simplified shapes, physical intent, import contracts, and contact checks |
 | [Encounter recovery design](references/encounter-recovery-design.md) | Regaining control, safe recovery windows, and encounter re-entry |
 | [Trim sheet authoring](references/trim-sheet-authoring.md) | Reusable surface strips, texel density, UV alignment, and seams |
 | [UI feedback and confirmation](references/ui-feedback-and-confirmation.md) | Action acknowledgment, pending states, confirmation cost, and outcome clarity |
