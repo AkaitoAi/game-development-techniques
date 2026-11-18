@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Level gating design](references/level-gating-design.md) | Access rules, prerequisite communication, backtracking, and recovery |
+| [Mesh instance variation authoring](references/mesh-instance-variation-authoring.md) | Reusable variants, silhouette diversity, determinism, and asset budgets |
+| [UI comparison layouts](references/ui-comparison-layouts.md) | Comparable values, units, differences, and readable decision layouts |
+| [Audio emitter authoring](references/audio-emitter-authoring.md) | Source placement, coverage, attachment, and scene validation |
+| [Runtime light control programming](references/runtime-light-control-programming.md) | Light ownership, transitions, shadow state, and lifecycle cleanup |
+| [Texture mask authoring](references/texture-mask-authoring.md) | Channel contracts, packing, precision, compression, and shader validation |
 | [Mechanic introduction sequencing](references/mechanic-introduction-sequencing.md) | Prerequisites, first use, variation, and mastery checks |
 | [Mesh deformation budgeting](references/mesh-deformation-budgeting.md) | Skinning cost, corrective shapes, fidelity tiers, and pose quality |
 | [UI search and filter design](references/ui-search-and-filter-design.md) | Query behavior, filter state, result clarity, and selection continuity |
