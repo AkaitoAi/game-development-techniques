@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Encounter recovery design](references/encounter-recovery-design.md) | Regaining control, safe recovery windows, and encounter re-entry |
+| [Trim sheet authoring](references/trim-sheet-authoring.md) | Reusable surface strips, texel density, UV alignment, and seams |
+| [UI feedback and confirmation](references/ui-feedback-and-confirmation.md) | Action acknowledgment, pending states, confirmation cost, and outcome clarity |
+| [Dialogue mix priority](references/dialogue-mix-priority.md) | Speech importance, competing lines, ducking, and intelligibility |
+| [Procedural look-at programming](references/procedural-look-at-programming.md) | Target arbitration, pose constraints, smoothing, and ownership |
+| [Mesh normal and tangent validation](references/mesh-normal-and-tangent-validation.md) | Shading bases, mirrored UVs, import conventions, and deformation checks |
 | [Reward reveal design](references/reward-reveal-design.md) | Outcome presentation, pacing, acknowledgment, and recovery |
 | [Character topology for deformation](references/character-topology-for-deformation.md) | Edge flow, joint deformation, silhouette, and pose checks |
 | [UI information hierarchy](references/ui-information-hierarchy.md) | Priority, grouping, progressive disclosure, and information density |
