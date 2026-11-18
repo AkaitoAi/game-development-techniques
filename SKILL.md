@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Boss arena design](references/boss-arena-design.md) | Spatial affordances, attack coverage, recovery, and arena state changes |
+| [UV layout authoring](references/uv-layout-authoring.md) | Island planning, seams, density, padding, and import checks |
+| [UI tutorial overlays](references/ui-tutorial-overlays.md) | Context triggers, input ownership, interruption, and tutorial persistence |
+| [Sound distance design](references/sound-distance-design.md) | Audible ranges, distance cues, prioritization, and listener perspective |
+| [Runtime object selection programming](references/runtime-object-selection-programming.md) | Picking queries, selection identity, input arbitration, and invalidation |
+| [Game mesh import validation](references/game-mesh-import-validation.md) | Import contracts, transforms, attributes, topology, and repeatable builds |
 | [Player goal signposting](references/player-goal-signposting.md) | Goal transitions, attention cues, confirmation, and recovery from uncertainty |
 | [Environment prop storytelling](references/environment-prop-storytelling.md) | Prop relationships, evidence, composition, and narrative interpretation |
 | [UI icon system design](references/ui-icon-system-design.md) | Symbol vocabulary, ambiguity, consistency, and recognition checks |
