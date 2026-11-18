@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Runtime save slot management](references/runtime-save-slot-management.md) | Slot identity, concurrent requests, profile ownership, and recovery |
+| [Game checksum programming](references/game-checksum-programming.md) | Canonical state, hash boundaries, deterministic ordering, and divergence checks |
+| [Animation compression streaming](references/runtime-animation-compression-streaming.md) | Compressed blocks, pose sampling, residency, and latency |
+| [Game runtime binary formats](references/game-runtime-binary-formats.md) | Versioned assets, offsets, validation, compatibility, and loading |
 | [Runtime animation notify queues](references/runtime-animation-notify-queues.md) | Temporal event capture, queue publication, interruption, and deduplication |
 | [Animation curve programming](references/animation-curve-programming.md) | Sampling, blending, value ownership, discontinuities, and precision |
 | [Gameplay action cancellation](references/gameplay-action-cancellation.md) | Multi-phase actions, commit points, interruption, and resource release |
