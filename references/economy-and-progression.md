@@ -43,3 +43,9 @@ Track entitlement state independently of the current price table. Decide how an 
 ## Track rewards by lifetime
 
 For each reward, specify whether it lasts for an encounter, a run, or the account. Keep progression grants and temporary modifiers in separate state, and describe what restarts and resets remove. **Check** award experience, unlock an ability, and pick up a temporary power-up before restarting an encounter and starting a new run. Verify that each reward expires or persists according to its lifetime. See [Skill trees and build diversity](skill-trees-and-build-diversity.md) and [Power-ups](power-ups.md).
+
+## Validate reward requests at the mutation boundary
+
+Validate requested reward identity against the current eligible progression state before indexing a reward table or granting anything. A disabled button or caller-side check can communicate eligibility, while the grant command enforces it for every caller. Commit the progression change and reward according to the project's persistence contract.
+
+Exercise the existing grant command with a wrong reward/day identifier, negative and out-of-range identifiers, malformed saved progression, an expired eligibility window, and duplicate delivery. On rejection, compare currency, inventory, progression, timestamps, and emitted reward events with their initial values. On success, verify the exact grant and one progression transition. See [Gameplay invariants and validation](gameplay-invariants-and-validation.md), [Gameplay transaction boundaries](gameplay-transaction-boundaries.md), and [Game clock domains](game-clock-domains.md).

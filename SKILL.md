@@ -343,9 +343,11 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Crash diagnostics](references/crash-diagnostics.md) | Crash capture, symbolication, grouping, and regression verification |
 | [Achievements and leaderboards](references/achievements-and-leaderboards.md) | Unlock conditions, score submission, ranking, and season boundaries |
 
-1. Identify the player-visible behavior and the target conditions. For a regression, capture a baseline using a reproducible scene, input sequence, or playtest scenario.
+1. Identify the player-visible behavior and the target conditions. Read the project's instructions and identify its engine and package versions. Trace the normal entry flow to the suspected code through callers, serialized scenes, prefabs, and runtime construction where relevant. Report unresolved reachability for legacy or unreferenced code. For a regression, capture a baseline using a reproducible scene, input sequence, or playtest scenario.
 2. Start with **Problem and design reasoning** in the relevant guide. Match the observed symptom and project constraints to the problem the technique addresses. Treat documented developer rationale as evidence about that game and labeled inferences as hypotheses to test. Map the chosen technique to the project's update loop, asset pipeline, or rules, and tune it using measurements from the target game.
 3. Test at the normal entry point with a repeatable comparison. Use frame-time traces for performance, input and state traces for simulation and control timing, a representative playtest for experiential changes, and clean and incremental builds for pipeline changes. Record the conditions and the observed result.
+
+For code investigations, name the mutation boundary and source location. Report source evidence, an executed isolated test, an Editor reproduction, and a device/build reproduction as separate evidence levels. Mark each as passed, failed, proposed, or unavailable with the observed result. A proposed test requiring a new helper, package, or fixture remains proposed until it runs. Prefer a fixture exercising the existing command and verify that rejected input leaves relevant state unchanged. Use disposable saves or restored test keys for persistence tests.
 
 If symptoms overlap, start with the closest measurable cause. For a late jump, trace input arrival, eligibility, movement, and feedback timestamps before choosing between the physics and game-feel references.
 

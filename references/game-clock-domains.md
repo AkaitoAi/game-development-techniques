@@ -31,3 +31,22 @@ Map ticks to sampled presentation time using an explicit anchor and tick duratio
 Attach ticks and stable occurrence IDs to effects that may be revisited during rollback or rewind. Define which state restores from a snapshot, which cosmetic actions can replay, and which irreversible operations run only once after confirmation.
 
 **Check** restore a snapshot immediately before a timed reward and replay past it twice. Verify that each replay produces the intended simulation state and presentation while a persistent grant is recorded once.
+
+## Countdown and persisted deadline boundaries
+
+For a finite nonnegative countdown, subtract the accepted elapsed interval before testing expiry. Clamp the presented value to zero and commit the stopped state before delivering the terminal event. When the display rounds upward, use ceiling so positive fractions display one second and zero displays zero. Establish precedence when victory and timeout arrive in the same step.
+
+```text
+if running:
+    remaining = max(0, remaining - elapsed)
+    display(ceil(remaining))
+    if remaining == 0:
+        running = false
+        deliver_expiry()
+```
+
+Test just below, exactly at, and beyond expiry, plus zero at entry and subsequent updates. Confirm expiry fires once. An arithmetic model proves its branch behavior. In Unity, record timeScale and maximumDeltaTime before describing a large injected elapsed interval as a reproduced frame hitch. Pause and slowdown tests should use the clock the gameplay rule owns.
+
+For an offline deadline that survives restart, sample the current clock once and validate the stored timestamp's format and range. Compare current and stored values before subtraction, especially with unsigned types. A backward clock needs an explicit policy, such as zero credited elapsed time, and an untrusted device clock provides limited assurance. Use the project's existing time authority when available. Define missing and corrupt-save recovery separately from a valid unexpired claim.
+
+Test backward time, exactly-at-expiry, offset changes, malformed persisted timestamps, restart, and duplicate claim attempts. Match the test to an active entry flow before attributing player impact.
