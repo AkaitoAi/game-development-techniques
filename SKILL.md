@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Player choice consequence design](references/player-choice-consequence-design.md) | Choice expectations, consequence feedback, delayed effects, and consistency |
+| [Mesh silhouette design](references/mesh-silhouette-design.md) | Shape hierarchy, gameplay distance, pose readability, and visual overlap |
+| [UI number formatting](references/ui-number-formatting.md) | Numeric units, precision, localization, rounding, and consistent displays |
+| [Audio transition programming](references/audio-transition-programming.md) | Transition ownership, mixing states, interruption, and completion |
+| [Environmental reverb authoring](references/environmental-reverb-authoring.md) | Acoustic regions, material cues, sends, and transition checks |
+| [Mesh material slot validation](references/mesh-material-slot-validation.md) | Slot identities, section mappings, variants, and import changes |
 | [Traversal route design](references/traversal-route-design.md) | Approach, movement sequences, commitment, and recovery paths |
 | [Game asset wear authoring](references/game-asset-wear-authoring.md) | Material history, wear placement, scale, and readability |
 | [UI empty and loading states](references/ui-empty-and-loading-states.md) | Absent content, pending data, recovery, and interaction state |
