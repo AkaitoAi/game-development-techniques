@@ -33,6 +33,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [GPU-driven rendering](references/gpu-driven-rendering.md) | GPU visibility tests, draw compaction, indirect submission, and fallback paths |
 | [Mesh LOD and impostors](references/mesh-lod-and-impostors.md) | Geometry simplification, screen-space transitions, and distant representations |
 | [Visual effects](references/visual-effects.md) | Particles, effect events, overdraw budgets, and environmental reactions |
+| [Particle system architecture](references/particle-system-architecture.md) | Emitters, simulation, pooling, rendering, and event lifetimes |
 | [Navigation meshes and dynamic pathfinding](references/navigation-meshes-and-dynamic-pathfinding.md) | Walkable surfaces, moving blockers, traversal links, and replanning |
 | [Animation events and gameplay timing](references/animation-events-and-gameplay-timing.md) | Action windows, event delivery, interruptions, and timing drift |
 | [Baked visibility and portals](references/baked-visibility-and-portals.md) | Cell connectivity, visibility sets, occluders, and culling validation |
@@ -114,6 +115,9 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Replays](references/replays.md) | Recording, seeking, spectator views, highlights, and compatibility |
 | [Spectators and tournaments](references/spectators-and-tournaments.md) | Live observers, competitive visibility, match operations, and broadcast controls |
 | [Animation](references/animation.md) | Pose selection, transition timing, blending, locomotion, and motion alignment |
+| [Tween systems](references/tween-systems.md) | Interpolation, easing, cancellation, sequencing, and target ownership |
+| [Ragdoll systems](references/ragdoll-systems.md) | Animation and physics transitions, constraints, recovery, and network state |
+| [Inverse kinematics](references/inverse-kinematics.md) | Solver chains, targets, constraints, update order, and pose validation |
 | [Animation root motion](references/game-animation-root-motion.md) | Authored displacement, collision, root alignment, and movement ownership |
 | [Game transform hierarchies](references/game-transform-hierarchies.md) | Local and world transforms, parenting, propagation, and attachments |
 | [Animation compression](references/animation-compression.md) | Pose error, clip storage, decompression, and regression checks |
