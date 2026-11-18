@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Encounter role composition](references/encounter-role-composition.md) | Enemy roles, complementary pressures, readable combinations, and pacing |
+| [Hard-surface game assets](references/hard-surface-game-assets.md) | Shape hierarchy, normals, bevels, UVs, and in-game asset checks |
+| [UI error and recovery design](references/ui-error-and-recovery-design.md) | Actionable failures, progress preservation, retries, and recovery paths |
+| [Soundscape density design](references/soundscape-density-design.md) | Ambient layers, perceptual space, cue priority, and scene transitions |
+| [Runtime equipment attachment programming](references/runtime-equipment-attachment-programming.md) | Sockets, item ownership, attachment updates, and state changes |
+| [Game material authoring validation](references/game-material-authoring-validation.md) | Material input contracts, reference lighting, asset checks, and platform variants |
 | [Difficulty communication](references/difficulty-communication.md) | Challenge expectations, readable failure, and assist feedback |
 | [Modular asset kit design](references/modular-asset-kit-design.md) | Reusable geometry, grid rules, sockets, and seams |
 | [UI transition design](references/ui-transition-design.md) | Navigation continuity, motion timing, input handoff, and interruption |
