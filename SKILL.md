@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Traversal route design](references/traversal-route-design.md) | Approach, movement sequences, commitment, and recovery paths |
+| [Game asset wear authoring](references/game-asset-wear-authoring.md) | Material history, wear placement, scale, and readability |
+| [UI empty and loading states](references/ui-empty-and-loading-states.md) | Absent content, pending data, recovery, and interaction state |
+| [Sound loop design](references/sound-loop-design.md) | Loop boundaries, variation, transitions, and repetition |
+| [Runtime audio zone programming](references/runtime-audio-zone-programming.md) | Zone occupancy, blending, listener changes, and teardown |
+| [Mesh vertex color workflows](references/mesh-vertex-color-workflows.md) | Attribute contracts, painting, interpolation, and import validation |
 | [Enemy telegraph design](references/enemy-telegraph-design.md) | Warning timing, threat recognition, response opportunities, and cue overlap |
 | [Mesh baking workflows](references/mesh-baking-workflows.md) | High and low meshes, projection cages, shading bases, and bake checks |
 | [UI notification priority](references/ui-notification-priority.md) | Notification arbitration, lifetime, grouping, and interruption |
