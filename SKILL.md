@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Physics query result lifetimes](references/physics-query-result-lifetimes.md) | Result snapshots, object generations, delayed consumption, and buffer reuse |
+| [Runtime bounds maintenance](references/runtime-bounds-maintenance.md) | Dirty bounds, transforms, deformation, and conservative visibility |
+| [Network entity spawn ordering](references/network-entity-spawn-ordering.md) | Replica readiness, dependency references, reordering, and retirement |
+| [Gameplay cooldown programming](references/gameplay-cooldown-programming.md) | Charge state, deadlines, modifiers, pause behavior, and correction |
 | [Networked animation state](references/networked-animation-state.md) | Replicated action state, pose timing, correction, and presentation |
 | [Animation transition interruption](references/animation-transition-interruption.md) | Transition ownership, interruption rules, blend continuity, and event cleanup |
 | [Gameplay coroutines and tasks](references/gameplay-coroutines-and-tasks.md) | Continuation lifetimes, waits, cancellation, and execution scope |
