@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Mechanic introduction sequencing](references/mechanic-introduction-sequencing.md) | Prerequisites, first use, variation, and mastery checks |
+| [Mesh deformation budgeting](references/mesh-deformation-budgeting.md) | Skinning cost, corrective shapes, fidelity tiers, and pose quality |
+| [UI search and filter design](references/ui-search-and-filter-design.md) | Query behavior, filter state, result clarity, and selection continuity |
+| [Audio ducking programming](references/audio-ducking-programming.md) | Priority requests, envelopes, restoration, and overlapping duck states |
+| [Sound cue readability](references/sound-cue-readability.md) | Cue vocabulary, recognition, conflicting signals, and feedback timing |
+| [Runtime attachment visibility](references/runtime-attachment-visibility.md) | View-dependent equipment, representation ownership, shadows, and transitions |
 | [Player choice consequence design](references/player-choice-consequence-design.md) | Choice expectations, consequence feedback, delayed effects, and consistency |
 | [Mesh silhouette design](references/mesh-silhouette-design.md) | Shape hierarchy, gameplay distance, pose readability, and visual overlap |
 | [UI number formatting](references/ui-number-formatting.md) | Numeric units, precision, localization, rounding, and consistent displays |
