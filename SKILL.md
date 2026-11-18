@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Runtime animation notify queues](references/runtime-animation-notify-queues.md) | Temporal event capture, queue publication, interruption, and deduplication |
+| [Animation curve programming](references/animation-curve-programming.md) | Sampling, blending, value ownership, discontinuities, and precision |
+| [Gameplay action cancellation](references/gameplay-action-cancellation.md) | Multi-phase actions, commit points, interruption, and resource release |
+| [Gameplay command validation](references/gameplay-command-validation.md) | Command identity, eligibility, state revisions, and rejection behavior |
 | [Runtime decal programming](references/runtime-decal-programming.md) | Placement, surface attachment, pooling, and retirement |
 | [Particle event programming](references/particle-event-programming.md) | Simulation events, CPU and GPU delivery, bounds, and callback ownership |
 | [Gameplay save dirty tracking](references/gameplay-save-dirty-tracking.md) | Dirty revisions, snapshot capture, completion, and repeat writes |
