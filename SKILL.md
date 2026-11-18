@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Navigation local avoidance](references/navigation-local-avoidance.md) | Steering constraints, neighboring agents, deadlocks, and path coordination |
+| [AI blackboard programming](references/ai-blackboard-programming.md) | Knowledge ownership, revisions, expiry, and behavior dependencies |
+| [UI list virtualization](references/ui-list-virtualization.md) | Recycled rows, stable identity, selection, and asynchronous content |
+| [Runtime UI layout invalidation](references/runtime-ui-layout-invalidation.md) | Dirty propagation, measure and arrange passes, batching, and layout loops |
 | [Animation event routing](references/animation-event-routing.md) | Event ownership, dispatch, filtering, cancellation, and pooled actors |
 | [Runtime animation retargeting](references/runtime-animation-retargeting.md) | Skeleton mapping, scale differences, runtime constraints, and fallback |
 | [Runtime audio parameter control](references/runtime-audio-parameter-control.md) | Parameter ownership, smoothing, mixing, and emitter resets |
