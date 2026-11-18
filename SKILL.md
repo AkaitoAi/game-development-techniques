@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Networked animation state](references/networked-animation-state.md) | Replicated action state, pose timing, correction, and presentation |
+| [Animation transition interruption](references/animation-transition-interruption.md) | Transition ownership, interruption rules, blend continuity, and event cleanup |
+| [Gameplay coroutines and tasks](references/gameplay-coroutines-and-tasks.md) | Continuation lifetimes, waits, cancellation, and execution scope |
+| [Runtime main thread dispatch](references/runtime-main-thread-dispatch.md) | Completion queues, safe phases, stale results, and overload |
 | [World streaming reference management](references/world-streaming-reference-management.md) | Cross-cell references, load ownership, proxies, and safe unloading |
 | [Runtime navigation mesh updates](references/runtime-navigation-mesh-updates.md) | Dirty tiles, rebuild jobs, publication, and path invalidation |
 | [Procedural generation job pipelines](references/procedural-generation-job-pipelines.md) | Deterministic stages, dependencies, cancellation, and chunk publication |
