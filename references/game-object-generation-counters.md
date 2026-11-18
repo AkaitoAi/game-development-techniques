@@ -1,0 +1,16 @@
+# Game object generation counters
+
+## Problem and design reasoning
+
+A delayed callback can retain a slot after its object is destroyed. If the slot is reused, index-only lookup can return a different object. Valve's Source SDK handles combine an entry index with a serial number. Removal clears the object and increments its serial, and lookup compares the stored serial with the handle's serial. The counter is masked to a finite range, so wraparound remains part of the design. This gives shipped Source game code a concrete stale-handle rejection mechanism. [Valve handle representation](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/public/basehandle.h) · [Valve removal path](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/shared/entitylist_base.cpp) · [Valve lookup path](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/shared/entitylist_base.h)
+
+Blizzard's *Overwatch* Gameplay Architecture and Netcode talk at GDC 2017 provides broader context for entity lifetimes in a changing networked simulation. The protocols below are implementation recommendations. The talk is not evidence for a particular Blizzard generation-counter layout. [Timothy Ford, GDC 2017](https://www.gdcvault.com/play/1024001/-Overwatch-Gameplay-Architecture-and)
+
+## Techniques and practical checks
+
+- Represent a runtime reference with slot and generation, and include world or registry identity when references can cross those boundaries. Validate occupancy and the complete identity at resolution. **Check** capture a handle, destroy its object, and reuse the same slot. Verify that the old handle fails and the new one resolves. Repeat across two simultaneously loaded worlds.
+- Define invalidation as part of retirement. Invalidate the generation before the slot becomes available for new allocation, and make callback delivery resolve a handle again at the point of use. A generation comparison alone does not protect a raw pointer during concurrent destruction. Use the project's ownership barrier or read guard. **Check** complete an asynchronous result during destruction and after slot reuse. Verify it produces the intended cancellation outcome without writing to a replacement object.
+- Choose counter width from reuse rate and maximum stale-reference lifetime. For narrow counters, define a quarantine or slot-retirement policy before wrap permits an old identity to recur. **Check** use a deliberately small counter in a test fixture, force wrap, and confirm the chosen policy prevents an old handle from resolving unexpectedly.
+- Keep runtime generations separate from persistent content identity. Restore stable save IDs into a new runtime registry and rebuild handles through an explicit mapping. Define restoration order when objects reference one another. **Check** save two mutually referencing objects, reload into different slots, and deliver an old queued command. Verify restored references use the new identities and the old command is rejected.
+
+See [Entity identifiers and handles](entity-identifiers-and-handles.md) for choosing identity scope and [Runtime sparse containers](runtime-sparse-containers.md) for storage mapping rules.

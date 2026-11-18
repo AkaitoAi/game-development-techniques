@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Network packet budgets](references/network-packet-budgets.md) | Packet size, serialization limits, fragmentation, and bandwidth checks |
+| [Replication priority scheduling](references/replication-priority-scheduling.md) | Update urgency, fairness, bandwidth allocation, and stale state |
+| [Runtime sparse containers](references/runtime-sparse-containers.md) | Sparse indexing, dense iteration, mutation, and identity consistency |
+| [Game object generation counters](references/game-object-generation-counters.md) | Recycled slots, stale handles, callback validation, and counter rollover |
 | [Shader parameter binding](references/shader-parameter-binding.md) | Binding layouts, buffer alignment, update frequency, and validation |
 | [Runtime render instance management](references/runtime-render-instance-management.md) | Instance identity, update buffers, culling bounds, and retirement |
 | [Simulation checkpoint testing](references/simulation-checkpoint-testing.md) | Restore fixtures, checkpoint coverage, state comparisons, and repeatability |

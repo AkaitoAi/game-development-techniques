@@ -1,0 +1,16 @@
+# Network packet budgets
+
+## Problem and design reasoning
+
+A useful replication update can still arrive too late when serialized traffic accumulates faster than a connection can send it. The packet builder must account for headers, acknowledgments, reliable backlog, and burst traffic as well as the state payload. In the shipped *Overwatch*, Dan Reed's GDC talk describes bandwidth as one constraint in synchronizing scripted weapons and abilities. The talk supports budgeting replication alongside responsiveness, while the packet policies below are portable recommendations. [Blizzard, Networking Scripted Weapons and Abilities, GDC 2017](https://www.gdcvault.com/play/1024653/Networking-Scripted-Weapons-and-Abilities)
+
+For shipped *Call of Duty: Black Ops III*, Benjamin Goyette describes measuring visible latency with instrumented controllers and high-speed video because captures alone could miss what players experienced. Use both traffic measurements and action-to-feedback timing when judging whether a packet budget works. [Activision, Fighting Latency on Call of Duty Black Ops III, GDC 2016](https://gdcvault.com/play/1023220/Fighting-Latency-on-Call-of)
+
+## Techniques and practical checks
+
+- **Account for complete traffic cost.** Assign each connection a measured send allowance over a time window. Include transport overhead, control traffic, retransmissions where applicable, and fragmentation in the observed wire cost. Carry a bounded allowance between frames so a slow frame cannot create an unlimited burst. **Check** a quiet session, maximum supported entity activity, and a reconnect burst. Compare payload bytes with captured wire bytes and report both peak rate and queued age.
+- **Bound individual packet construction.** Determine the payload limit for the chosen transport and platform. Measure encoded size before committing a record, use a fallback for records larger than one normal update, and preserve the receiver's reconstruction contract. **Check** maximum-size state, optional fields all enabled, and an oversized test record. Verify the builder terminates, obeys its limits, and produces a decodable result.
+- **Reserve room for progress-critical traffic.** Define a small number of traffic classes with maximum waiting times. Cap reliable backlog and replace obsolete replaceable state with its newest version before transmission. Give teardown and connection-control messages a documented delivery policy. **Check** a burst of cosmetic events while a player joins, changes ownership, or leaves. Confirm essential messages progress and memory stays bounded.
+- **Tune using delivery delay and gameplay outcomes.** Capture serialized bytes, packets sent, dropped or replaced records, backlog, and time from enqueue to delivery. Match budget adjustment to the transport's congestion behavior. **Check** a repeatable low-bandwidth, loss, and jitter profile in a local test. Measure action-to-feedback latency, convergence time, and recovery after the profile returns to normal.
+
+For selecting eligible state, see [Network interest management](network-interest-management.md). For choosing which eligible update is sent next, see [Replication priority scheduling](replication-priority-scheduling.md).
