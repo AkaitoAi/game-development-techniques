@@ -57,6 +57,8 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Mobile thermals and battery](references/mobile-thermal-and-battery.md) | Sustained device performance, thermal throttling, and power budgets |
 | [Mobile memory pressure](references/mobile-memory-pressure.md) | Peak memory, pressure signals, asset eviction, and recovery |
 | [Physics](references/physics.md) | Collision, simulation timing, character movement, or contact stability |
+| [Physics constraints and joints](references/physics-constraints-and-joints.md) | Constraint frames, limits, motors, stability, and solver budgets |
+| [Collision filtering and layers](references/collision-filtering-and-layers.md) | Collision matrices, query masks, trigger policy, and runtime changes |
 | [Physics query architecture](references/physics-query-architecture.md) | Query timing, collision filters, batch scheduling, and result validity |
 | [Physics substep events](references/game-engine-substep-events.md) | Bridging physics callbacks to gameplay, contact lifetimes, and event deduplication |
 | [Game math](references/game-math.md) | Vectors, coordinate transforms, rotations, interpolation, probability, and numerical precision |
@@ -118,6 +120,8 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Tween systems](references/tween-systems.md) | Interpolation, easing, cancellation, sequencing, and target ownership |
 | [Ragdoll systems](references/ragdoll-systems.md) | Animation and physics transitions, constraints, recovery, and network state |
 | [Inverse kinematics](references/inverse-kinematics.md) | Solver chains, targets, constraints, update order, and pose validation |
+| [Motion warping and alignment](references/motion-warping-and-alignment.md) | Adapting authored movement to targets, collision, and interruption |
+| [Animation layer composition](references/animation-layer-composition.md) | Pose masks, additive layers, evaluation order, and ownership |
 | [Animation root motion](references/game-animation-root-motion.md) | Authored displacement, collision, root alignment, and movement ownership |
 | [Game transform hierarchies](references/game-transform-hierarchies.md) | Local and world transforms, parenting, propagation, and attachments |
 | [Animation compression](references/animation-compression.md) | Pose error, clip storage, decompression, and regression checks |
