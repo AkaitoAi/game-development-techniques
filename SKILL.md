@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Difficulty communication](references/difficulty-communication.md) | Challenge expectations, readable failure, and assist feedback |
+| [Modular asset kit design](references/modular-asset-kit-design.md) | Reusable geometry, grid rules, sockets, and seams |
+| [UI transition design](references/ui-transition-design.md) | Navigation continuity, motion timing, input handoff, and interruption |
+| [Interactive foley systems](references/interactive-foley-systems.md) | Motion-driven sound, surfaces, variation, and mix priorities |
+| [Runtime footstep programming](references/runtime-footstep-programming.md) | Contact events, surface queries, timing, and duplicate prevention |
+| [Game asset scale conventions](references/game-asset-scale-conventions.md) | Units, import transforms, pivots, and cross-discipline validation |
 | [Design patterns for loops and challenge](references/design-patterns-loops-and-challenge.md) | Core loops, learning, mastery, difficulty, and pacing |
 | [Design patterns for choice and progression](references/design-patterns-choice-and-progression.md) | Meaningful decisions, incentives, economies, and build diversity |
 | [Design patterns for worlds and social play](references/design-patterns-worlds-and-social-play.md) | Exploration, narrative, cooperation, competition, and emergence |
