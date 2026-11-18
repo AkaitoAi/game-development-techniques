@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Contact modification programming](references/contact-modification-programming.md) | Solver contact policy, callback restrictions, and stable contact behavior |
+| [Physics world partitioning](references/physics-world-partitioning.md) | Simulation regions, boundary transfer, shared contacts, and activation |
+| [Runtime object serialization](references/runtime-object-serialization.md) | Object graphs, identity, reference fixups, and partial load recovery |
+| [Runtime configuration validation](references/game-runtime-configuration-validation.md) | Configuration schemas, invariants, publication, and fallback behavior |
 | [Runtime prefab instantiation](references/runtime-prefab-instantiation.md) | Template expansion, staged initialization, reference fixups, and publication |
 | [Asset load priority scheduling](references/asset-load-priority-scheduling.md) | Competing requests, deadlines, dependency priorities, and starvation |
 | [Audio occlusion query programming](references/audio-occlusion-query-programming.md) | Query budgets, smoothing, stale results, and listener changes |
