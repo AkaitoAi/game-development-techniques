@@ -67,6 +67,12 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Destruction](references/destruction.md) | Breakable objects, fracture, debris, and gameplay state after damage |
 | [Destructible terrain](references/destructible-terrain.md) | Editable terrain volumes, excavation, remeshing, collision, and persistence |
 | [Game mechanics](references/game-mechanics.md) | Gameplay rules, resource loops, progression, or interactions between systems |
+| [Player failure feedback design](references/player-failure-feedback-design.md) | Explaining outcomes, actionable feedback, retry context, and accessibility |
+| [Game asset naming and taxonomy](references/game-asset-naming-and-taxonomy.md) | Searchable asset categories, naming rules, variants, and migration |
+| [UI settings preview design](references/ui-settings-preview-design.md) | Preview scope, apply and revert, confirmation, and recovery |
+| [Sound layer authoring](references/sound-layer-authoring.md) | Semantic layers, timing, variation, and mix coherence |
+| [Runtime effect parameter programming](references/runtime-effect-parameter-programming.md) | Parameter scope, competing writers, update order, and reset |
+| [Mesh export preset validation](references/mesh-export-preset-validation.md) | DCC export contracts, axes, units, attributes, and reproducibility |
 | [Puzzle hint design](references/puzzle-hint-design.md) | Hint escalation, player intent, disclosure timing, and comprehension |
 | [Material blend authoring](references/material-blend-authoring.md) | Surface transitions, blend masks, material consistency, and filtering |
 | [UI progress indicators](references/ui-progress-indicators.md) | Work estimates, stage transitions, uncertain progress, and completion |
