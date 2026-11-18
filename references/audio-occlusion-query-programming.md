@@ -1,0 +1,16 @@
+# Audio occlusion query programming
+
+## Problem and design reasoning
+
+A physics visibility result can arrive after its emitter has moved, disappeared, or been reused. Applying it directly can muffle the wrong sound or make a doorway transition audibly flicker. Naughty Dog's *The Last of Us* talk documents balancing believable obstruction and occlusion against clear dialogue and gameplay cues. The implementation must serve what the player can understand as well as environmental plausibility. [Naughty Dog, Aural Immersion, GDC 2014](https://www.gdcvault.com/play/1020444/Aural-Immersion-Audio-Technology-in)
+
+Audiokinetic's integration documentation assigns the game's physics code responsibility for computing obstruction and occlusion and passing values to the sound engine. Its project guide describes interpolation to smooth abrupt parameter changes. A portable engineering inference is to make geometry queries a budgeted service with explicit result identity, then publish filtered acoustic parameters to the audio thread. The protocol below is recommended practice rather than an attribution to Naughty Dog. [Wwise integration guide, obstruction and occlusion](https://www.audiokinetic.com/files/?get=2015.1.9_5624%2FWwise_UserGuide_en.pdf) · [Wwise project guide, parameter interpolation](https://www.audiokinetic.com/download/documents/WwiseProjectAdventure_en.pdf)
+
+## Techniques and practical checks
+
+- Give each query an emitter generation, listener ID, request revision, and sampled positions. Validate the result against the current owner and an acceptable displacement or age before applying it. Define whether stale results trigger an immediate refresh or a temporary conservative value. **Check** move the listener through a doorway while delaying queries, then destroy and reuse an emitter. Confirm an old result never changes the reused emitter.
+- Allocate queries by audibility, importance, movement, and time since the last sample. Stagger routine work and refresh relevant emitters when a nearby door changes state. Define an upper bound on queries per frame and a policy when the queue is full. **Check** activate a dense scene and open several doors simultaneously. Record queue age and frame cost, and verify that important sounds refresh within the intended response time.
+- Separate the raw query result from the published gain and filtering parameters. Use defined attack and release behavior, and choose how teleports reset history. Keep the acoustic collision filter distinct from assumptions about visual transparency. **Check** sweep past a thin post, glass panel, and doorway. Listen for chatter, and log raw coverage against the smoothed output and reset events.
+- Transfer immutable parameter updates at a known handoff. Batch updates where appropriate and make shutdown cancel outstanding query ownership before retiring audio objects. **Check** unload a region with pending work, change the active listener, and pause or resume. Verify the audio thread receives valid owners and the query count returns to its expected baseline.
+
+See [Spatial audio and acoustics](spatial-audio-and-acoustics.md) for propagation choices and [Physics query architecture](physics-query-architecture.md) for query timing.

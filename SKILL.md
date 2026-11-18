@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Runtime prefab instantiation](references/runtime-prefab-instantiation.md) | Template expansion, staged initialization, reference fixups, and publication |
+| [Asset load priority scheduling](references/asset-load-priority-scheduling.md) | Competing requests, deadlines, dependency priorities, and starvation |
+| [Audio occlusion query programming](references/audio-occlusion-query-programming.md) | Query budgets, smoothing, stale results, and listener changes |
+| [Audio event lifetime management](references/audio-event-lifetime-management.md) | Start and stop ownership, callbacks, looping sounds, and emitter reuse |
 | [Navigation local avoidance](references/navigation-local-avoidance.md) | Steering constraints, neighboring agents, deadlocks, and path coordination |
 | [AI blackboard programming](references/ai-blackboard-programming.md) | Knowledge ownership, revisions, expiry, and behavior dependencies |
 | [UI list virtualization](references/ui-list-virtualization.md) | Recycled rows, stable identity, selection, and asynchronous content |
