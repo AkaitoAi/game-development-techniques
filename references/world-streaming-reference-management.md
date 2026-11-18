@@ -1,0 +1,16 @@
+# World streaming reference management
+
+## Problem and design reasoning
+
+A cell can remain resident long after the camera leaves because a quest, actor, or shared dependency still holds it. Releasing that cell without understanding the holder can instead invalidate a live interaction. Insomniac's *Sunset Overdrive* streaming postmortem describes moving an existing streaming engine into a freely traversed city and the resulting loading and initialization problems. Guerrilla's *Horizon Zero Dawn* presentation also separates high- and low-level streaming concerns. A portable design inference is to make the reason for residency inspectable rather than letting arbitrary pointers determine it silently. [Elan Ruskin, Streaming in Sunset Overdrive's Open World, GDC 2015](https://media.gdcvault.com/gdc2015/presentations/Ruskin_Elan_SunsetOverdriveStreaming.pdf) · [Guerrilla, Streaming the World of Horizon Zero Dawn](https://www.guerrilla-games.com/read/Streaming-the-World-of-Horizon-Zero-Dawn)
+
+Epic documents the distinction between an asset reference that causes loading and a soft reference that can identify an unloaded asset. It also describes how a load request retains assets until its completion delegate, after which a continuing consumer needs its own reference. These are engine-specific contracts. The following ownership protocol is an engine-agnostic recommendation derived from that distinction. [Epic, Asynchronous Asset Loading](https://dev.epicgames.com/documentation/en-us/unreal-engine/asynchronous-asset-loading-in-unreal-engine)
+
+## Techniques and practical checks
+
+- Represent residency demand as an owned lease carrying owner identity, cell identity, purpose, and lifetime generation. Keep persistent quest or actor identity separate from the lease that currently keeps its region loaded. **Check** activate a quest, leave its cell, and suspend or complete the quest. Inspect the remaining residency holders and verify that releasing the quest demand does not remove a cell still needed by another owner.
+- Resolve cross-cell references through stable identities and an explicit loaded, loading, or unavailable result. Let the caller request residency only when its operation requires live state. **Check** a UI entry, AI goal, and active interaction referencing an unloaded region. Verify which operation loads it and that deferred resolution never uses a previous instance after reloading.
+- Hold shared dependencies while any live cell or in-flight consumer needs them. Define a safe point for retiring cells after removing navigation links, subscriptions, and callbacks that can reach their state. **Check** unload two neighboring cells in opposite orders while an actor crosses the seam. Verify shared assets remain valid and late callbacks produce an explicit cancelled or stale outcome.
+- Log the path from each residency root to each retained cell and resource, including queued work. Track the oldest demand and why it survives. **Check** repeatedly start and cancel fast travel and traverse back and forth across a boundary. Compare retained cells after equivalent settling points and trace each unexpected survivor to an owner.
+
+For request cancellation and asset lifetimes, see [Async asset lifetimes](async-asset-lifetimes.md). For readiness and look-ahead policy, see [World streaming](world-streaming.md).

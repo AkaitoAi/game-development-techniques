@@ -1,0 +1,16 @@
+# Runtime navigation mesh updates
+
+## Problem and design reasoning
+
+Changing collision does not immediately make an agent's stored path reflect the new world. A rebuilt region can also invalidate polygon references held by a worker or moving actor. Kojima Productions' *Death Stranding* postmortem describes navigation across fragmented terrain and player-placed bridges and ladders. That is evidence for maintaining connectivity as the world changes, and does not establish that every such change rebuilt a mesh. [Eric Johnson, Death Stranding: An AI Postmortem, GDC 2021 AI Summit](https://gdcvault.com/play/1027144/AI-Summit-Death-Stranding-An)
+
+Epic documents tile-based local rebuilds and distinguishes navigation costs, excluded areas, and traversal links. Recast's DetourTileCache source provides a concrete implementation of obstacle requests and queued tile updates. A portable design inference is to version the affected navigation data, rebuild a bounded region, and publish it through a coherent boundary so readers can recognize stale paths. [Epic, Modifying the Navigation Mesh](https://dev.epicgames.com/documentation/en-us/unreal-engine/overview-of-how-to-modify-the-navigation-mesh-in-unreal-engine) · [Recast navigation tile-cache source](https://github.com/recastnavigation/recastnavigation/blob/main/DetourTileCache/Source/DetourTileCache.cpp)
+
+## Techniques and practical checks
+
+- Classify each change as a cost adjustment, temporary blocker, traversal-link update, or geometry rebuild. Compute dirty bounds with the supported agent clearance and tile border included. **Check** a door, movable crate, placed bridge, and changed terrain patch for each supported agent size. Confirm the selected update covers the resulting movement constraint and avoids unnecessary neighboring rebuilds.
+- Capture collision inputs with a region revision and build from that coherent input. Queue or coalesce dirty regions under a measured work budget, then validate the revision before publication. **Check** move an obstacle several times while a rebuild is deliberately delayed. Verify old work cannot replace a newer result and that frequent edits do not grow an unbounded queue.
+- Publish replacement tiles at a navigation-safe point and mark affected path corridors for validation. Keep readers from dereferencing retired tile storage, and give partial or unavailable routes a deliberate behavior. **Check** complete a path query and advance an actor during tile replacement. Verify the actor either continues over validated polygons or waits or replans through its defined fallback.
+- Reconnect neighboring tiles and dynamic links only after endpoints satisfy the current navigation revision and traversal rules. Trace edit-to-usable-route latency separately from geometry build time. **Check** edit across a tile or streaming boundary with agents on both sides. Test removal during approach and traversal, measure route recovery time, and inspect for disconnected seams or paths through removed surfaces.
+
+For path request ownership, see [Asynchronous path requests](asynchronous-path-requests.md). For link execution and reservations, see [Runtime navigation links](runtime-navigation-links.md).
