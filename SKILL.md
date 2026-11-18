@@ -181,6 +181,10 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Game prototyping](references/game-prototyping.md) | Testing design assumptions, judging prototype results, and planning a vertical slice |
 | [Gameplay architecture](references/gameplay-architecture.md) | Entity composition, gameplay state ownership, and object lifecycles |
 | [Programming patterns](references/programming-patterns.md) | State, commands, composition, and choosing where patterns simplify code |
+| [Shader parameter binding](references/shader-parameter-binding.md) | Binding layouts, buffer alignment, update frequency, and validation |
+| [Runtime render instance management](references/runtime-render-instance-management.md) | Instance identity, update buffers, culling bounds, and retirement |
+| [Simulation checkpoint testing](references/simulation-checkpoint-testing.md) | Restore fixtures, checkpoint coverage, state comparisons, and repeatability |
+| [Runtime debug command systems](references/runtime-debug-command-systems.md) | Command registration, argument validation, execution scope, and tracing |
 | [Contact modification programming](references/contact-modification-programming.md) | Solver contact policy, callback restrictions, and stable contact behavior |
 | [Physics world partitioning](references/physics-world-partitioning.md) | Simulation regions, boundary transfer, shared contacts, and activation |
 | [Runtime object serialization](references/runtime-object-serialization.md) | Object graphs, identity, reference fixups, and partial load recovery |
