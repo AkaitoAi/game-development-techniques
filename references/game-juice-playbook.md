@@ -1,0 +1,20 @@
+# Game juice playbook
+
+## Problem and design reasoning
+
+An action can register correctly while its presentation leaves players unsure what happened. Coordinate visual, audio, motion, and optional haptic feedback around confirmed outcomes. Choose an intended message—contact, success, danger, or recovery—before choosing effects.
+
+The supplied playbook attributes its Breakout-style demonstration to Martin Jonasson and Petri Purho's Nordic Game talk, *Juice It or Lose It*. Source retrieval failed during this update, so this attribution comes from the supplied document; its exact quotations remain unverified and are omitted here. The cross-genre techniques below are implementation recommendations, rather than claims that the speakers tested every genre.
+
+Complementary developer references already used in this skill are [Jan Willem Nijman's The Art of Screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U) and [Derek Sakamoto, Hearthstone: How to Create an Immersive User Interface, GDC 2015](https://www.gdcvault.com/play/1022036/Hearthstone-How-to-Create-an). Hearthstone provides a shipped-game interface context. These references motivate studying presentation; they do not establish universal gains from adding more effects.
+
+## Techniques and practical checks
+
+- **Map outcomes to readable feedback.** Distinguish hits, blocks, misses, rewards, and rejected commands. Combine short sound, color or shape accents, and motion where they communicate the result. Lower decorative debris contrast while preserving live hazards. Use shape or timing alongside color. A card game can combine a card settling, a counter change, and one confirmation sound. **Check** ask players to identify outcomes in crowded play, then repeat muted, with reduced motion, and without relying on color. Compare confusion and response time against the baseline.
+- **Keep decorative motion separate from simulation.** Put squash, stretch, tilt, gaze, and neighboring-object ripples on a visual layer unless gameplay deformation is intentional. Preserve collision and aiming. For timed easing, use `u = clamp(elapsed / duration, 0, 1)` and interpolate using `ease(u)`, with explicit zero-duration behavior. For frame-independent target following, use `alpha = 1 - exp(-lambda * dt)` and `x += (target - x) * alpha`, with nonnegative rate and time. Matching 10% remaining-distance movement at 60 Hz gives `alpha = 1 - pow(0.9, 60 * dt)`. Define a snap tolerance. **Check** compare equal elapsed times at 30, 60, and 120 Hz plus a hitch; verify exact tween endpoints, interruption behavior, unchanged hitboxes, and reset of pooled-object defaults.
+- **Bound layered exits and escalation.** Commit defeat or collection when rules require it; optionally leave a noninteractive proxy that shrinks, fades, spins, or falls. Bound particles, trail history, debris lifetime, and concurrent voices. Cap combo pitch and define its reset condition. Instant removal can be appropriate where clarity requires it. **Check** trigger peak event bursts and repeated combo resets. Measure frame time, overdraw, active voices, and pool growth; confirm proxies expire and cannot grant rewards or block movement.
+- **Tune the combined response with independent controls.** Add layers individually to a clear baseline. Scale shake by event meaning and distance, and separate decorative camera offsets from targeting. Provide reduced motion and suitable intensity/audio controls. Eyes, expressions, and reactive text should fit the tone without obscuring instructions. **Check** compare baseline and layered versions using identical player tasks. Exercise pause, slow motion, repeated UI actions, and reduced-effects settings; retain layers whose intended benefit survives without hiding information or disrupting input.
+
+## Related guides
+
+Use [Game feel](game-feel.md) for input-to-response behavior, [Tween systems](tween-systems.md) for ownership and cancellation, [Visual effects](visual-effects.md) for effect budgets, and [Sound layer authoring](sound-layer-authoring.md) for cue composition. Silence and restrained motion are also useful presentation choices.

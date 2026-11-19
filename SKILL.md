@@ -165,6 +165,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Skill trees and build diversity](references/skill-trees-and-build-diversity.md) | Unlock structure, meaningful choices, and respecialization |
 | [Trading and player markets](references/trading-and-player-markets.md) | Trades, order books, settlement, and economy monitoring |
 | [Game feel](references/game-feel.md) | Responsiveness, action timing, and visual, audio, or haptic feedback |
+| [Game juice playbook](references/game-juice-playbook.md) | Coordinating feedback layers, easing, decorative deformation, exits, and effect budgets |
 | [Combat design](references/combat-design.md) | Fictional combat timing, tactical choices, and attack readability |
 | [Stealth design](references/stealth-design.md) | In-game detection rules, alert feedback, and recovery after discovery |
 | [Turn-based tactics](references/turn-based-tactics.md) | Turn order, action budgets, previews, and resolving interactions |
