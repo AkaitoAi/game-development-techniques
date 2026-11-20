@@ -398,6 +398,7 @@ Read the relevant reference in this folder. If the agent does not support skill 
 | [Multithreading and jobs](references/multithreading-and-jobs.md) | Parallel work, dependencies, synchronization, and profiling |
 | [2D rendering](references/2d-rendering.md) | Sprites, atlases, tilemaps, scaling, and pixel stability |
 | [Puzzle design](references/puzzle-design.md) | Constraints, solution discovery, hints, and solvability |
+| [Block puzzle piece generation](references/block-puzzle-piece-generation.md) | Tray selection, solvability floors, droughts, adaptive pacing, and fair continue offers |
 | [Difficulty and balancing](references/difficulty-and-balancing.md) | Challenge curves, assists, balance changes, and measuring outcomes |
 | [Roguelike run design](references/roguelike-run-design.md) | Run structure, draft choices, escalation, and progression between runs |
 | [Platforming challenges](references/platforming-challenges.md) | Jump metrics, obstacle sequences, moving platforms, and checkpoints |
